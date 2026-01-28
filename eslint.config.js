@@ -37,6 +37,11 @@ export default tseslint.config(
         { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
       ],
 
+      'no-var': 'error',
+
+      eqeqeq: ['error', 'always'],
+
+      curly: 'error',
       ...prettier.rules,
     },
   },
