@@ -42,7 +42,7 @@ export default tseslint.config(
       eqeqeq: ['error', 'always'],
 
       curly: 'error',
-      ...prettier.rules,
     },
   },
+  prettier,
 );
