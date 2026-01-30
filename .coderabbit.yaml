@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
-language: "ko-KR"
+language: 'ko-KR'
 
 # 리뷰 톤 및 스타일
 tone_instructions: |
@@ -8,11 +8,11 @@ tone_instructions: |
   단순한 개인 취향보다는 기술적 근거와 팀 컨벤션을 중심으로 설명해주세요.
 
 reviews:
-  profile: "chill"
+  profile: 'chill'
   high_level_summary: true
   auto_review:
     enabled: true
-    ignore_usernames: ["dependabot", "renovate"]
+    ignore_usernames: ['dependabot', 'renovate']
 
   # 불필요한 노이즈 제거
   poem: false
@@ -20,17 +20,17 @@ reviews:
 
   # 파일 필터링 (일반적인 제외 패턴)
   path_filters:
-    - "!node_modules/**"
-    - "!dist/**"
-    - "!build/**"
-    - "!**/*.lock"
-    - "!**/*.png"
-    - "!**/*.svg"
+    - '!node_modules/**'
+    - '!dist/**'
+    - '!build/**'
+    - '!**/*.lock'
+    - '!**/*.png'
+    - '!**/*.svg'
 
   # 경로별 지침 (단일 레포 구조에 최적화)
   path_instructions:
     # 1. React 컴포넌트 (.tsx)
-    - path: "src/**/*.tsx"
+    - path: 'src/**/*.tsx'
       instructions: |
         React 컴포넌트 리뷰:
         - 컴포넌트 명은 PascalCase, 파일명은 kebab-case 준수
@@ -41,7 +41,7 @@ reviews:
         - 반복 렌더링이 예상되면 useMemo/useCallback 제안
 
     # 2. 스타일 (Vanilla Extract, .css.ts)
-    - path: "src/**/*.css.ts"
+    - path: 'src/**/*.css.ts'
       instructions: |
         Vanilla Extract 스타일 리뷰:
         - 스타일은 반드시 .css.ts 파일로 분리 (인라인 스타일 금지)
@@ -50,7 +50,7 @@ reviews:
         - 중복되는 스타일은 제거하고 재사용성 고려
 
     # 3. 비즈니스 로직, 훅, 유틸 (.ts)
-    - path: "src/**/*.ts"
+    - path: 'src/**/*.ts'
       instructions: |
         TypeScript 및 로직 리뷰:
         - [Hook] use* 접두사 사용 및 의존성 배열(exhaustive-deps) 확인
@@ -62,7 +62,7 @@ reviews:
         - any 타입 사용 금지, 구체적인 타입 지정
 
     # 4. 전역 설정 및 기타
-    - path: "**/*"
+    - path: '**/*'
       instructions: |
         전반적인 프로젝트 규칙:
         - 절대 경로 import 사용 (@/components, @/hooks 등)
