@@ -12,6 +12,7 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@vanilla-extract/css": "^1.18.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },
@@ -20,6 +21,7 @@
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
+    "@vanilla-extract/vite-plugin": "^5.1.4",
     "@vitejs/plugin-react": "^5.1.1",
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
