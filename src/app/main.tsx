@@ -1,3 +1,5 @@
+import '../shared/styles/reset.css';
+import '../shared/styles/theme.css';
 import '../shared/styles/global.css';
 
 import App from '@app/App';
