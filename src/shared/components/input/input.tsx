@@ -1,11 +1,9 @@
 import type { InputHTMLAttributes } from 'react';
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  hasError: boolean;
-}
+import * as styles from './input.css';
 
-const Input = ({ className, hasError, ...props }: InputProps) => {
-  return <input />;
+const Input = ({ ...props }: InputHTMLAttributes<HTMLInputElement>) => {
+  return <input className={styles.input} {...props} />;
 };
 
 export default Input;
