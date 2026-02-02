@@ -1,3 +1,7 @@
+import clsx from 'clsx';
+
+import * as styles from './day-chip.css';
+
 interface DayChip {
   day: string;
   date: number;
@@ -7,9 +11,12 @@ interface DayChip {
 
 const DayChip = ({ day, date, select, onClick }: DayChip) => {
   return (
-    <div>
-      <span>{date}</span>
-      <span>{day}</span>
+    <div
+      className={clsx(styles.chip, { [styles.selected]: select })}
+      onClick={onClick}
+    >
+      <span className={styles.dateText}>{date}</span>
+      <span className={styles.dayText}>{day}</span>
     </div>
   );
 };
