@@ -11,13 +11,13 @@ interface DayChip {
 
 const DayChip = ({ day, date, select, onClick }: DayChip) => {
   return (
-    <div
+    <button
       className={clsx(styles.chip, { [styles.selected]: select })}
       onClick={onClick}
     >
       <span className={styles.dateText}>{date}</span>
       <span className={styles.dayText}>{day}</span>
-    </div>
+    </button>
   );
 };
 
