@@ -1,10 +1,12 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
 
+import * as styles from './cta-button.css';
+
 type CtaVariant = 'primary' | 'sub' | 'navy';
 
 interface CtaButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  variant: CtaVariant;
+  variant?: CtaVariant;
 }
 
 const CtaButton = ({
@@ -20,7 +22,7 @@ const CtaButton = ({
       type={type}
       disabled={disabled}
       onClick={onClick}
-      // className={buttonRecipe({ variant })} // Vanilla Extract 적용 예시
+      className={styles.ctaButtonRecipe({ variant })}
       {...props}
     >
       {children}
