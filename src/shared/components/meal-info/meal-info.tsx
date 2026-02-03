@@ -14,7 +14,7 @@ const MealInfo = ({ menu, kcal }: MealInfoProps) => {
         ))}
       </div>
 
-      <hr className={styles.underLine} />
+      <div className={styles.underLine} />
 
       <div className={styles.kcalInfo}>{kcal} kcal</div>
     </div>
