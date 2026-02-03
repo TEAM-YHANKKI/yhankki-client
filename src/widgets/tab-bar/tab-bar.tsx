@@ -24,7 +24,7 @@ const TabBar = ({ selectedTab, onTabChange }: TabBarProps) => {
             key={tab.id}
             onClick={() => onTabChange(tab.id)}
             className={styles.tabItem({
-              isActive: isActive ? 'true' : 'false',
+              isActive: isActive ? 'active' : 'inactive',
             })}
           >
             {tab.label}
