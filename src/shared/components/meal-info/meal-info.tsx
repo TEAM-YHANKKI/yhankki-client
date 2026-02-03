@@ -16,7 +16,9 @@ const MealInfo = ({ menu, kcal }: MealInfoProps) => {
 
       <div className={styles.underLine} />
 
-      <div className={styles.kcalInfo}>{kcal} kcal</div>
+      <div className={styles.kcalInfo}>
+        {kcal > 0 ? `${kcal.toLocaleString()} kcal` : '칼로리 정보가 없습니다'}
+      </div>
     </div>
   );
 };
