@@ -15,21 +15,26 @@ const TABS: { id: TabType; label: string }[] = [
 
 const TabBar = ({ selectedTab, onTabChange }: TabBarProps) => {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} role='tablist'>
       {TABS.map((tab) => {
         const isActive = selectedTab === tab.id;
 
         return (
-          <div
+          <button
             key={tab.id}
+            type='button'
+            role='tab'
+            aria-selected={isActive}
             onClick={() => onTabChange(tab.id)}
             className={styles.tabItem({
               isActive: isActive ? 'active' : 'inactive',
             })}
           >
             {tab.label}
-            {isActive && <div className={styles.underLine} />}
-          </div>
+            {isActive && (
+              <div className={styles.underLine} aria-hidden='true' />
+            )}
+          </button>
         );
       })}
     </div>
