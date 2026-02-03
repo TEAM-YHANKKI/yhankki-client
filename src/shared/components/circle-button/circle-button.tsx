@@ -11,7 +11,12 @@ interface CircleButtonProps {
 const CircleButton = ({ icon, label, onClick }: CircleButtonProps) => {
   return (
     <div className={styles.container}>
-      <button className={styles.button} onClick={onClick}>
+      <button
+        className={styles.button}
+        onClick={onClick}
+        type='button'
+        aria-label={label}
+      >
         {icon}
       </button>
       <span className={styles.label}>{label}</span>
