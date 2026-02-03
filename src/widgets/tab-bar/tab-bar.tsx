@@ -7,11 +7,11 @@ interface TabBarProps {
   onTabChange: (tab: TabType) => void;
 }
 
-const TABS: { id: TabType; label: string }[] = [
+const TABS = [
   { id: 'studentHall', label: '학생회관' },
   { id: 'yongoreum', label: '용오름대학' },
   { id: 'dormitory', label: '생활관' },
-];
+] as const;
 
 const TabBar = ({ selectedTab, onTabChange }: TabBarProps) => {
   return (
