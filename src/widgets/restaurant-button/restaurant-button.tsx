@@ -6,23 +6,34 @@ export type RestaurantType = 'studentHall' | 'dormitory' | 'yongoreum';
 
 const RESTAURANT_NAMES: Record<RestaurantType, string> = {
   studentHall: '학생회관 식당',
-  dormitory: '기숙사 식당',
-  yongoreum: '용오름대학 식당',
+  dormitory: '생활관\n식당',
+  yongoreum: '용오름대학\n식당',
 };
 
 interface RestaurantButtonProps {
   type: RestaurantType;
+  isLiked?: boolean;
   onClick: (type: RestaurantType) => void;
 }
 
-const RestaurantButton = ({ type, onClick }: RestaurantButtonProps) => {
+const RestaurantButton = ({
+  type,
+  isLiked,
+  onClick,
+}: RestaurantButtonProps) => {
   return (
-    <button onClick={() => onClick(type)}>
-      <div>
-        <span>{RESTAURANT_NAMES[type]}</span>
-        <MainIcon />
+    <button
+      className={styles.button({ restaurant: type })}
+      onClick={() => onClick(type)}
+    >
+      <div className={styles.titleSection}>
+        <span className={styles.titleText}>{RESTAURANT_NAMES[type]}</span>
+        <MainIcon className={styles.icon({ isLiked })} />
       </div>
-      <div />
+      <div
+        className={styles.imageArea({ restaurant: type })}
+        role='presentation'
+      />
     </button>
   );
 };
