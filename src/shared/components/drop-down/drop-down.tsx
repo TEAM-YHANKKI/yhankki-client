@@ -15,6 +15,7 @@ const DropDown = ({ options, initialValue, onSelect }: DropDownProps) => {
   return (
     <div className={styles.container}>
       <button
+        type='button'
         className={styles.trigger}
         onClick={() => setIsOpen((prev) => !prev)}
       >
