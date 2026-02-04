@@ -11,6 +11,7 @@ export const background = style({
   width: '100dvw',
   height: '100dvh',
   backgroundColor: 'rgba(0, 0, 0, 0.4)',
+  zIndex: themeVars.zIndex.modal,
 });
 
 export const modalBox = style({
