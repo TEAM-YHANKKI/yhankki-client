@@ -1,4 +1,7 @@
+import { ArrowIcon } from '@shared/icons';
 import { useState } from 'react';
+
+import * as styles from './drop-down.css';
 
 interface DropDownProps {
   options: { id: string; label: string }[];
@@ -10,20 +13,21 @@ const DropDown = ({ options, initialValue, onSelect }: DropDownProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div>
+    <div className={styles.container}>
       <button
-        onClick={() => {
-          setIsOpen(true);
-        }}
+        className={styles.trigger}
+        onClick={() => setIsOpen((prev) => !prev)}
       >
         {initialValue.label}
+        <ArrowIcon />
       </button>
 
       {isOpen && (
-        <ul>
+        <ul className={styles.optionList}>
           {options.map((option) => (
             <li
               key={option.id}
+              className={styles.option}
               onClick={() => {
                 onSelect(option.id);
                 setIsOpen(false);
