@@ -1,23 +1,26 @@
-import type { ReactNode } from 'react';
+import { LogoIcon } from '@shared/icons';
 import { useEffect } from 'react';
 
+import * as styles from './toast.css';
+
 interface ToastProps {
-  icon: ReactNode;
   message: string;
   duration?: number;
   onClose: () => void;
 }
 
-const Toast = ({ icon, message, duration = 3000, onClose }: ToastProps) => {
+const Toast = ({ message, duration = 2000, onClose }: ToastProps) => {
   useEffect(() => {
     const timer = setTimeout(onClose, duration);
     return () => clearTimeout(timer);
   }, [duration, onClose]);
 
   return (
-    <div>
-      <div>{icon}</div>
-      <span>{message}</span>
+    <div className={styles.toastContainer}>
+      <div className={styles.toastBox}>
+        <span className={styles.iconWrapper}>{<LogoIcon />}</span>
+        <span className={styles.message}>{message}</span>
+      </div>
     </div>
   );
 };
