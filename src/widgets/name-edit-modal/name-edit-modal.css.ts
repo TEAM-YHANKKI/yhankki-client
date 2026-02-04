@@ -17,6 +17,7 @@ export const modalTitle = style({
   display: 'flex',
   flexDirection: 'column',
   gap: '0.4rem',
+  width: '100%',
   color: themeVars.color.gray_50,
   ...themeVars.font.caption_r_14,
   paddingBottom: '1.2rem',

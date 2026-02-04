@@ -32,7 +32,7 @@ const NameEditModal = ({ isOpen, onClose, onSubmit }: NameEditModalProps) => {
               <span>닉네임 수정</span>
               <CrossIcon className={styles.crossIcon} onClick={onClose} />
             </div>
-            <p>앞으로 불리고 싶은 새로운 이름을 알려주세요!</p>
+            <p>새로운 이름을 알려주세요!</p>
           </div>
         </header>
         <section className={styles.input}>
