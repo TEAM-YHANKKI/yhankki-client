@@ -8,7 +8,7 @@ export const container = style({
 
 export const trigger = style({
   display: 'flex',
-  justifyContent: 'center',
+  justifyContent: 'space-between',
   alignItems: 'center',
   gap: '1rem',
   width: '100%',
