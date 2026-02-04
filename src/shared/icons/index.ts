@@ -1,3 +1,4 @@
+export { default as ArrowIcon } from './svgs/icn_arrow.svg?react';
 export { default as InstagramIcon } from './svgs/icn_instagram.svg?react';
 export { default as LogoIcon } from './svgs/icn_logo.svg?react';
 export { default as MainIcon } from './svgs/icn_main.svg?react';
