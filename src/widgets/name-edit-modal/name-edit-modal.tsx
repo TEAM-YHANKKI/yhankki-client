@@ -14,23 +14,29 @@ interface NameEditModalProps {
 const NameEditModal = ({ isOpen, onClose, onSubmit }: NameEditModalProps) => {
   const [newName, setNewName] = useState('');
 
-  const handleSubmit = () => {
-    if (newName.trim().length === 0) return;
-
-    onSubmit(newName);
+  const handleClose = () => {
     setNewName('');
     onClose();
   };
 
+  const handleSubmit = () => {
+    if (newName.trim().length === 0) return;
+
+    onSubmit(newName);
+    handleClose();
+  };
+
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal isOpen={isOpen} onClose={handleClose}>
       <div className={styles.container}>
         <header className={styles.titleContainer}>
           <PenIcon />
           <div className={styles.modalTitle}>
             <div className={styles.mainTitleText}>
               <span>닉네임 수정</span>
-              <CrossIcon className={styles.crossIcon} onClick={onClose} />
+              <button type='button' onClick={handleClose} aria-label='닫기'>
+                <CrossIcon className={styles.crossIcon} />
+              </button>
             </div>
             <p>새로운 이름을 알려주세요!</p>
           </div>
@@ -38,6 +44,7 @@ const NameEditModal = ({ isOpen, onClose, onSubmit }: NameEditModalProps) => {
         <section className={styles.input}>
           <Input
             placeholder='닉네임을 입력해주세요'
+            value={newName}
             onChange={(e) => setNewName(e.target.value)}
           />
         </section>

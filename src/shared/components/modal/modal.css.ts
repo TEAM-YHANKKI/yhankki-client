@@ -19,5 +19,4 @@ export const modalBox = style({
   backgroundColor: themeVars.color.gray_5,
   width: 'calc(100% - 4rem)',
   maxWidth: '38rem',
-  minWidth: '32rem',
 });
