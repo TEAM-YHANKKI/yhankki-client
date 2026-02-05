@@ -1,14 +1,25 @@
 import { WhiteMainLogoIcon } from '@shared/icons';
+import type { TabType } from '@shared/types/type';
 import DisplayMenu from '@widgets/display-menu/display-menu';
 import TabBar from '@widgets/tab-bar/tab-bar';
 import WeeklyCalendar from '@widgets/weekly-calendar/weekly-calendar';
 import { useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import * as styles from './menu.css';
 import { MOCK_MENU_LIST } from './menu-mock';
 
 const Menu = () => {
+  const { restaurantId } = useParams();
+  const navigate = useNavigate();
   const [selectedDate, setSelectedDate] = useState(new Date().getDate());
+
+  const currentTab = (restaurantId as TabType) || 'studentHall';
+
+  const handleTabChange = (id: TabType) => {
+    navigate(`/menu/${id}`);
+  };
+
   return (
     <>
       <div className={styles.gradientHeader}>
@@ -16,7 +27,7 @@ const Menu = () => {
       </div>
       <main className={styles.mainContainer}>
         <div className={styles.tabWrapper}>
-          <TabBar selectedTab='studentHall' onTabChange={() => {}} />
+          <TabBar selectedTab={currentTab} onTabChange={handleTabChange} />
         </div>
 
         <div className={styles.restaurantInfo}>

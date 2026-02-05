@@ -1,6 +1,6 @@
 export const PATH = {
   HOME: '/',
-  MENU: '/menu',
+  MENU: '/menu/:restaurantId',
   PARTNERSHIP: '/partnership',
   MYPAGE: '/mypage',
   TEAM: '/team',
