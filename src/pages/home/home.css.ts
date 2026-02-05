@@ -59,3 +59,20 @@ export const circleButton = style({
   gap: '1.2rem',
   marginTop: '1.6rem',
 });
+
+export const textButtonContainer = style({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '1rem',
+});
+
+export const penButton = style({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  width: '2.8rem',
+  height: '2.8rem',
+  padding: '0.4rem 0.5rem',
+  backgroundColor: themeVars.color.point_1,
+  borderRadius: '100%',
+});

@@ -1,7 +1,7 @@
 import CircleButton from '@shared/components/circle-button/circle-button';
 import Notice from '@shared/components/notice/notice';
 import { WhiteMainLogoIcon } from '@shared/icons';
-import { LogoIcon, PersonIcon, StarIcon } from '@shared/icons';
+import { LogoIcon, PenIcon, PersonIcon, StarIcon } from '@shared/icons';
 import RestaurantButton from '@widgets/restaurant-button/restaurant-button';
 
 import * as styles from './home.css';
@@ -14,7 +14,12 @@ const Home = () => {
       </div>
       <main className={styles.overlayContainer}>
         <div className={styles.homeText}>
-          <p>안녕하세요 포도님</p>
+          <div className={styles.textButtonContainer}>
+            <p>안녕하세요 포도님</p>
+            <button type='button' className={styles.penButton}>
+              <PenIcon />
+            </button>
+          </div>
           <p>오늘도 든든한 하루 되세요!</p>
         </div>
 
