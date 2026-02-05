@@ -1,3 +1,4 @@
+import { RESTAURANT_INFO } from '@shared/constants/restaurant-info';
 import { WhiteMainLogoIcon } from '@shared/icons';
 import type { TabType } from '@shared/types/type';
 import DisplayMenu from '@widgets/display-menu/display-menu';
@@ -15,6 +16,7 @@ const Menu = () => {
   const [selectedDate, setSelectedDate] = useState(new Date().getDate());
 
   const currentTab = (restaurantId as TabType) || 'studentHall';
+  const info = RESTAURANT_INFO[currentTab] || RESTAURANT_INFO.studentHall;
 
   const handleTabChange = (id: TabType) => {
     navigate(`/menu/${id}`);
@@ -31,11 +33,11 @@ const Menu = () => {
         </div>
 
         <div className={styles.restaurantInfo}>
-          <p>생활관 식당</p>
+          <p>{info.name}</p>
           <div className={styles.detailInfo}>
-            <p>식당 위치 | 생활관 1층</p>
-            <p>식당 운영 요일 | 월요일 ~ 금요일</p>
-            <p>식당 운영 시간 | 00시 ~ 00시 </p>
+            <p>식당 위치 | {info.location}</p>
+            <p>식당 운영 요일 | {info.days}</p>
+            <p>식당 운영 시간 | {info.time} </p>
           </div>
         </div>
 
