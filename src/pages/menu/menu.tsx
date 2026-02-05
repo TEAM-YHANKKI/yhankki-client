@@ -1,9 +1,11 @@
 import { WhiteMainLogoIcon } from '@shared/icons';
+import DisplayMenu from '@widgets/display-menu/display-menu';
 import TabBar from '@widgets/tab-bar/tab-bar';
 import WeeklyCalendar from '@widgets/weekly-calendar/weekly-calendar';
 import { useState } from 'react';
 
 import * as styles from './menu.css';
+import { MOCK_MENU_LIST } from './menu-mock';
 
 const Menu = () => {
   const [selectedDate, setSelectedDate] = useState(new Date().getDate());
@@ -31,6 +33,21 @@ const Menu = () => {
             selectedDate={selectedDate}
             onDateSelect={setSelectedDate}
           />
+
+          <div className={styles.menuList}>
+            {MOCK_MENU_LIST.map((item) => (
+              <DisplayMenu
+                key={item.corner}
+                corner={item.corner}
+                price={item.price}
+                menu={item.menu}
+                kcal={item.kcal}
+              />
+            ))}
+          </div>
+          <p className={styles.notice}>
+            식단 구성은 학교 사정에 따라 변경될 수 있어요
+          </p>
         </div>
       </main>
     </>

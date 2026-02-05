@@ -17,7 +17,7 @@ export const mainContainer = style({
   width: '100%',
   minHeight: 'calc(100vh - 12rem)',
   backgroundColor: themeVars.color.gray_5,
-  padding: '0 2.4rem',
+  padding: '0 2.4rem 2.4rem 2.4rem',
   zIndex: themeVars.zIndex.overlay,
 });
 
@@ -51,7 +51,20 @@ export const menuDisplaySection = style({
   flexDirection: 'column',
   gap: '3.2rem',
   marginTop: '2.8rem',
-  padding: '2.4rem 1.9rem',
+  padding: '2.4rem 1.9rem 3.2rem 1.9rem',
   backgroundColor: themeVars.color.gray_0,
   borderRadius: '30px',
+});
+
+export const menuList = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1.6rem',
+});
+
+export const notice = style({
+  display: 'flex',
+  justifyContent: 'center',
+  color: themeVars.color.gray_50,
+  ...themeVars.font.caption_r_14,
 });
