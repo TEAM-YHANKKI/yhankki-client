@@ -1,6 +1,6 @@
-import * as styles from './tab-bar.css';
+import type { TabType } from '@shared/types/type';
 
-export type TabType = 'studentHall' | 'yongoreum' | 'dormitory';
+import * as styles from './tab-bar.css';
 
 interface TabBarProps {
   selectedTab: TabType;
