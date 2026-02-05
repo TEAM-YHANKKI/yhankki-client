@@ -11,12 +11,17 @@ import { useNavigate, useParams } from 'react-router-dom';
 import * as styles from './menu.css';
 import { MOCK_MENU_DATA } from './menu-mock';
 
+const isValidTab = (id: string | undefined): id is TabType => {
+  const validTabs: TabType[] = ['studentHall', 'yongoreum', 'dormitory'];
+  return !!id && validTabs.includes(id as TabType);
+};
+
 const Menu = () => {
   const { restaurantId } = useParams();
   const navigate = useNavigate();
   const [selectedDate, setSelectedDate] = useState(new Date().getDate());
 
-  const currentTab = (restaurantId as TabType) || 'studentHall';
+  const currentTab = isValidTab(restaurantId) ? restaurantId : 'studentHall';
   const info = RESTAURANT_INFO[currentTab] || RESTAURANT_INFO.studentHall;
   const menuList = MOCK_MENU_DATA[currentTab]?.[selectedDate] || [];
 
