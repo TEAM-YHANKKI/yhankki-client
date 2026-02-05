@@ -32,7 +32,10 @@ const Menu = () => {
   return (
     <>
       <div className={styles.gradientHeader}>
-        <WhiteMainLogoIcon className={styles.mainLogo} />
+        <WhiteMainLogoIcon
+          className={styles.mainLogo}
+          onClick={() => navigate('/')}
+        />
       </div>
       <main className={styles.mainContainer}>
         <div className={styles.tabWrapper}>
