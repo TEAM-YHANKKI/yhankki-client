@@ -50,7 +50,7 @@ export const menuDisplaySection = style({
   display: 'flex',
   flexDirection: 'column',
   gap: '3.2rem',
-  marginTop: '2.8rem',
+  marginTop: '1.2rem',
   padding: '2.4rem 1.9rem 3.2rem 1.9rem',
   backgroundColor: themeVars.color.gray_0,
   borderRadius: '30px',
