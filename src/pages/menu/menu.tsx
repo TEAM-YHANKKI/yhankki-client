@@ -1,4 +1,5 @@
 import { WhiteMainLogoIcon } from '@shared/icons';
+import TabBar from '@widgets/tab-bar/tab-bar';
 
 import * as styles from './menu.css';
 
@@ -8,7 +9,20 @@ const Menu = () => {
       <div className={styles.gradientHeader}>
         <WhiteMainLogoIcon className={styles.mainLogo} />
       </div>
-      <main className={styles.overlayContainer}></main>
+      <main className={styles.mainContainer}>
+        <div className={styles.tabWrapper}>
+          <TabBar selectedTab='studentHall' onTabChange={() => {}} />
+        </div>
+
+        <div className={styles.restaurantInfo}>
+          <p>생활관 식당</p>
+          <div className={styles.detailInfo}>
+            <p>식당 위치 | 생활관 1층</p>
+            <p>식당 운영 요일 | 월요일 ~ 금요일</p>
+            <p>식당 운영 시간 | 00시 ~ 00시 </p>
+          </div>
+        </div>
+      </main>
     </>
   );
 };

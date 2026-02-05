@@ -7,7 +7,7 @@ export const container = style({
   justifyContent: 'space-around',
   alignItems: 'center',
   padding: '0 2rem',
-  backgroundColor: themeVars.color.gray_0,
+  backgroundColor: themeVars.color.gray_5,
   borderTopLeftRadius: '18px',
   borderTopRightRadius: '18px',
 });
