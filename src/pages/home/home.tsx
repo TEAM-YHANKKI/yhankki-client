@@ -1,5 +1,6 @@
 import CircleButton from '@shared/components/circle-button/circle-button';
 import Notice from '@shared/components/notice/notice';
+import Toast from '@shared/components/toast/toast';
 import { STORAGE_KEYS } from '@shared/constants/storage';
 import { WhiteMainLogoIcon } from '@shared/icons';
 import { LogoIcon, PenIcon, PersonIcon, StarIcon } from '@shared/icons';
@@ -12,6 +13,7 @@ import * as styles from './home.css';
 
 const Home = () => {
   const navigate = useNavigate();
+  const [showToast, setShowToast] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [nickname, setNickname] = useState(() => {
     return localStorage.getItem(STORAGE_KEYS.USER_NICKNAME) || '포도';
@@ -21,6 +23,7 @@ const Home = () => {
     setNickname(newNickname);
     localStorage.setItem(STORAGE_KEYS.USER_NICKNAME, newNickname);
     setIsModalOpen(false);
+    setShowToast(true);
   };
 
   return (
@@ -88,6 +91,15 @@ const Home = () => {
             isOpen={isModalOpen}
             onSubmit={handleNicknameChange}
             onClose={() => setIsModalOpen(false)}
+          />
+        )}
+
+        {showToast && (
+          <Toast
+            message='닉네임이 수정되었어요!'
+            onClose={() => {
+              setShowToast(false);
+            }}
           />
         )}
       </main>
