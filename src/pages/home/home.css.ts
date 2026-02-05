@@ -1,0 +1,28 @@
+import { themeVars } from '@shared/styles/theme.css';
+import { style } from '@vanilla-extract/css';
+
+export const gradientHeader = style({
+  position: 'relative',
+  width: '100%',
+  height: '12rem',
+  padding: '0 3.2rem',
+  background: `linear-gradient(180deg, ${themeVars.color.primary_2} 44.71%, ${themeVars.color.point_2} 223.55%)`,
+});
+
+export const overlayContainer = style({
+  position: 'relative',
+  width: '100%',
+  minHeight: 'calc(100vh - 8.4rem)',
+  backgroundColor: themeVars.color.gray_0,
+  borderTopLeftRadius: '30px',
+  borderTopRightRadius: '30px',
+  marginTop: '-3.6rem',
+  zIndex: themeVars.zIndex.overlay,
+});
+
+export const mainLogo = style({
+  position: 'absolute',
+  top: '3.2rem',
+  width: '14.8rem',
+  height: '3.2rem',
+});
