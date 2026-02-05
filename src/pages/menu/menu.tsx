@@ -1,9 +1,12 @@
 import { WhiteMainLogoIcon } from '@shared/icons';
 import TabBar from '@widgets/tab-bar/tab-bar';
+import WeeklyCalendar from '@widgets/weekly-calendar/weekly-calendar';
+import { useState } from 'react';
 
 import * as styles from './menu.css';
 
 const Menu = () => {
+  const [selectedDate, setSelectedDate] = useState(new Date().getDate());
   return (
     <>
       <div className={styles.gradientHeader}>
@@ -21,6 +24,13 @@ const Menu = () => {
             <p>식당 운영 요일 | 월요일 ~ 금요일</p>
             <p>식당 운영 시간 | 00시 ~ 00시 </p>
           </div>
+        </div>
+
+        <div className={styles.menuDisplaySection}>
+          <WeeklyCalendar
+            selectedDate={selectedDate}
+            onDateSelect={setSelectedDate}
+          />
         </div>
       </main>
     </>

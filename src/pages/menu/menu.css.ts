@@ -45,3 +45,13 @@ export const restaurantInfo = style({
 export const detailInfo = style({
   ...themeVars.font.body_r_16,
 });
+
+export const menuDisplaySection = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '3.2rem',
+  marginTop: '2.8rem',
+  padding: '2.4rem 1.9rem',
+  backgroundColor: themeVars.color.gray_0,
+  borderRadius: '30px',
+});
