@@ -76,3 +76,7 @@ export const penButton = style({
   backgroundColor: themeVars.color.point_1,
   borderRadius: '100%',
 });
+
+export const nickName = style({
+  color: themeVars.color.primary_3,
+});
