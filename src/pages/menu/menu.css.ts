@@ -37,7 +37,7 @@ export const restaurantInfo = style({
   display: 'flex',
   flexDirection: 'column',
   gap: '1.2rem',
-  marginTop: '2.8rem',
+  marginTop: '1.2rem',
   color: themeVars.color.gray_100,
   ...themeVars.font.title_m_24,
 });

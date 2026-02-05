@@ -49,11 +49,20 @@ const Home = () => {
 
         <div className={styles.restaurantGrid}>
           <div className={styles.fullWidth}>
-            <RestaurantButton type='studentHall' onClick={() => {}} />
+            <RestaurantButton
+              type='studentHall'
+              onClick={() => navigate('/menu/studentHall')}
+            />
           </div>
 
-          <RestaurantButton type='yongoreum' onClick={() => {}} />
-          <RestaurantButton type='dormitory' onClick={() => {}} />
+          <RestaurantButton
+            type='yongoreum'
+            onClick={() => navigate('/menu/yongoreum')}
+          />
+          <RestaurantButton
+            type='dormitory'
+            onClick={() => navigate('/menu/dormitory')}
+          />
         </div>
 
         <div className={styles.circleButton}>
