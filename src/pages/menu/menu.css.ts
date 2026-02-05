@@ -68,3 +68,21 @@ export const notice = style({
   color: themeVars.color.gray_50,
   ...themeVars.font.caption_r_14,
 });
+
+export const emptyWrapper = style({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '40rem',
+  gap: '1.5rem',
+  color: themeVars.color.gray_50,
+});
+
+export const emptyLogo = style({
+  width: '6rem',
+  height: '6rem',
+});
+export const emptyText = style({
+  ...themeVars.font.title_m_18,
+});
