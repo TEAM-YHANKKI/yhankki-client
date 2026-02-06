@@ -1,4 +1,3 @@
-import { fullWidth } from '@pages/home/home.css';
 import { themeVars } from '@shared/styles/theme.css';
 import { style } from '@vanilla-extract/css';
 
