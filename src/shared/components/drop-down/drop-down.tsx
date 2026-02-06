@@ -1,4 +1,5 @@
 import { ArrowIcon } from '@shared/icons';
+import clsx from 'clsx';
 import { useState } from 'react';
 
 import * as styles from './drop-down.css';
@@ -7,13 +8,19 @@ interface DropDownProps {
   options: { id: string; label: string }[];
   initialValue: { id: string; label: string };
   onSelect: (id: string) => void;
+  className?: string;
 }
 
-const DropDown = ({ options, initialValue, onSelect }: DropDownProps) => {
+const DropDown = ({
+  options,
+  initialValue,
+  onSelect,
+  className,
+}: DropDownProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className={styles.container}>
+    <div className={clsx(styles.container, className)}>
       <button
         type='button'
         className={styles.trigger}
