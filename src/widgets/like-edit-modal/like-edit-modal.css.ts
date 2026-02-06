@@ -66,8 +66,12 @@ export const input = style({
   padding: '0.6rem 1.4rem',
 });
 
-export const icon = style({
+export const iconButton = style({
   flexShrink: 0,
   width: '2.4rem',
   height: '2.4rem',
+});
+
+export const heartIcon = style({
+  marginTop: '0.4rem',
 });
