@@ -32,7 +32,7 @@ export const description = style({
 export const dropdown = style({
   display: 'flex',
   alignItems: 'center',
-  gap: '1.2rem',
+  gap: '0.6rem',
 });
 
 export const menuList = style({

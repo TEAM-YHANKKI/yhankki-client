@@ -70,7 +70,7 @@ const MenuReview = ({ onClick }: MenuReviewProps) => {
     <section className={styles.container}>
       <div className={styles.titleSection}>
         <div className={styles.select}>
-          <p>오늘의 메뉴 리뷰</p>
+          <p>오늘의 메뉴</p>
           <div className={styles.dropdown}>
             <DropDown
               className={styles.restaurantSelect}
@@ -93,7 +93,7 @@ const MenuReview = ({ onClick }: MenuReviewProps) => {
           </div>
         </div>
         <p className={styles.description}>
-          좋아하는 메뉴를 저장하면, 다음에 나올 때 알려드려요!
+          좋아하는 메뉴를 저장하면, 다음에 알려드려요!
         </p>
       </div>
       <div className={styles.menuList}>
