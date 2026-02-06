@@ -4,7 +4,7 @@ import type { InputHTMLAttributes } from 'react';
 import * as styles from './input.css';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  className: string;
+  className?: string;
 }
 
 const Input = ({ className, ...props }: InputProps) => {
