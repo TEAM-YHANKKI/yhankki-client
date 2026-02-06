@@ -23,10 +23,10 @@ const LikeMenu = ({ likeMenu, onClick }: LikeMenuProps) => {
           ))}
         </ul>
       ) : (
-        <li className={styles.item}>
+        <div className={styles.item}>
           <HeartIcon className={styles.icon} />
           <span>좋아하는 메뉴가 없습니다.</span>
-        </li>
+        </div>
       )}
 
       <CtaButton variant='primary' onClick={onClick}>
