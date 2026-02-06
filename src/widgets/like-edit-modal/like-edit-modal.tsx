@@ -24,8 +24,9 @@ const LikeEditModal = ({
   const [inputValue, setInputValue] = useState('');
 
   const handleAddSubmit = () => {
-    if (!inputValue.trim()) return;
-    onAdd(inputValue);
+    const addMenu = inputValue.trim();
+    if (!addMenu) return;
+    onAdd(addMenu);
     setInputValue('');
   };
 
@@ -65,6 +66,7 @@ const LikeEditModal = ({
           <div className={styles.inputSection}>
             <button
               type='button'
+              aria-label='메뉴 추가'
               className={styles.iconButton}
               onClick={handleAddSubmit}
             >
