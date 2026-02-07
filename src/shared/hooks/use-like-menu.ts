@@ -4,7 +4,16 @@ import { useCallback, useEffect, useState } from 'react';
 export const useLikeMenu = (onShowToast: (msg: string) => void) => {
   const [likeMenu, setLikeMenu] = useState<string[]>(() => {
     const saved = localStorage.getItem(STORAGE_KEYS.LIKE_MENU);
-    return saved ? JSON.parse(saved) : [];
+
+    if (!saved) return [];
+
+    try {
+      const parsed = JSON.parse(saved);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch {
+      localStorage.removeItem(STORAGE_KEYS.LIKE_MENU);
+      return [];
+    }
   });
 
   useEffect(() => {
