@@ -45,7 +45,7 @@ const MenuReview = ({ onClick }: MenuReviewProps) => {
   const currentCornerId =
     selectedCorner || (cornerOptions.length > 0 ? cornerOptions[0].id : '');
 
-  const currentCornerLabel = currentCornerId || '정보 없음';
+  const currentCornerLabel = currentCornerId || '없음';
 
   const currentMenuList =
     dailyMenuData.find((item) => item.corner === currentCornerId)?.menu || [];
