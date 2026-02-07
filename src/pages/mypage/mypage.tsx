@@ -1,6 +1,8 @@
 import Toast from '@shared/components/toast/toast';
 import { STORAGE_KEYS } from '@shared/constants/storage';
 import { PenIcon, WhiteMainLogoIcon } from '@shared/icons';
+import LikeEditModal from '@widgets/like-edit-modal/like-edit-modal';
+import LikeMenu from '@widgets/like-menu/like-menu';
 import MenuReview from '@widgets/menu-review/menu-review';
 import NameEditModal from '@widgets/name-edit-modal/name-edit-modal';
 import { useEffect, useState } from 'react';
@@ -9,6 +11,7 @@ import * as styles from './mypage.css';
 
 const Mypage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLikeModalOpen, setIsLikeModalOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
 
   const [nickname, setNickname] = useState(() => {
@@ -47,6 +50,18 @@ const Mypage = () => {
     }
   };
 
+  const handleDeleteLike = (name: string) => {
+    setLikeMenu((prev) => prev.filter((item) => item !== name));
+  };
+
+  const handleAddLike = (name: string) => {
+    if (likeMenu.length >= 10) {
+      setToastMessage('최대 10개까지만 등록 가능합니다.');
+      return;
+    }
+    setLikeMenu((prev) => [...prev, name]);
+  };
+
   return (
     <>
       <div className={styles.gradientHeader}>
@@ -68,11 +83,29 @@ const Mypage = () => {
           <MenuReview onClick={handleMenuSave} />
         </div>
 
+        <div className={styles.likeMenuSection}>
+          <p>좋아하는 메뉴</p>
+          <LikeMenu
+            likeMenu={likeMenu}
+            onClick={() => setIsLikeModalOpen(true)}
+          />
+        </div>
+
         {isModalOpen && (
           <NameEditModal
             isOpen={isModalOpen}
             onSubmit={handleNicknameChange}
             onClose={() => setIsModalOpen(false)}
+          />
+        )}
+
+        {isLikeModalOpen && (
+          <LikeEditModal
+            isOpen={isLikeModalOpen}
+            likeMenu={likeMenu}
+            onDelete={handleDeleteLike}
+            onAdd={handleAddLike}
+            onClose={() => setIsLikeModalOpen(false)}
           />
         )}
 

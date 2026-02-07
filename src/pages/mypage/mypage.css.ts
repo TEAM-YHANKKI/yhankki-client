@@ -54,3 +54,11 @@ export const menuReview = style({
   paddingBottom: '3.2rem',
   borderBottom: `1px solid ${themeVars.color.gray_10}`,
 });
+
+export const likeMenuSection = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1.2rem',
+  marginTop: '1.6rem',
+  ...themeVars.font.title_m_18,
+});
