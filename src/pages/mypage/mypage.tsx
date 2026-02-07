@@ -1,3 +1,4 @@
+import CtaButton from '@shared/components/cta-button/cta-button';
 import Toast from '@shared/components/toast/toast';
 import { STORAGE_KEYS } from '@shared/constants/storage';
 import { PenIcon, WhiteMainLogoIcon } from '@shared/icons';
@@ -6,10 +7,12 @@ import LikeMenu from '@widgets/like-menu/like-menu';
 import MenuReview from '@widgets/menu-review/menu-review';
 import NameEditModal from '@widgets/name-edit-modal/name-edit-modal';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import * as styles from './mypage.css';
 
 const Mypage = () => {
+  const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isLikeModalOpen, setIsLikeModalOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
@@ -89,6 +92,22 @@ const Mypage = () => {
             likeMenu={likeMenu}
             onClick={() => setIsLikeModalOpen(true)}
           />
+        </div>
+
+        <div className={styles.partnershipContainer}>
+          <p>제휴식당</p>
+          <div className={styles.partnership}>
+            <p>용인대의 제휴식당을 확인해보세요</p>
+            <CtaButton
+              variant='sub'
+              onClick={() => {
+                navigate('/partnership');
+              }}
+              className={styles.partnershipButton}
+            >
+              제휴식당으로 이동하기
+            </CtaButton>
+          </div>
         </div>
 
         {isModalOpen && (

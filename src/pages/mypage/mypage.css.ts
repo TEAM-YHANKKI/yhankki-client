@@ -20,7 +20,7 @@ export const overlayContainer = style({
   borderTopLeftRadius: '30px',
   borderTopRightRadius: '30px',
   marginTop: '-3.6rem',
-  padding: '3.6rem 2.4rem 0 2.4rem',
+  padding: '3.6rem 2.4rem 8.6rem 2.4rem',
   zIndex: themeVars.zIndex.overlay,
 });
 
@@ -61,4 +61,28 @@ export const likeMenuSection = style({
   gap: '1.2rem',
   marginTop: '1.6rem',
   ...themeVars.font.title_m_18,
+});
+
+export const partnershipContainer = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1.2rem',
+  marginTop: '1rem',
+  ...themeVars.font.title_m_18,
+});
+
+export const partnership = style({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  gap: '1.6rem',
+  padding: '2rem 2.4rem',
+  backgroundColor: themeVars.color.gray_5,
+  borderRadius: '20px',
+  ...themeVars.font.body_r_16,
+});
+
+export const partnershipButton = style({
+  width: '100%',
 });
