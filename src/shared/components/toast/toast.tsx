@@ -1,5 +1,6 @@
 import { LogoIcon } from '@shared/icons';
 import { useEffect } from 'react';
+import { createPortal } from 'react-dom'; // 1. 추가
 
 import * as styles from './toast.css';
 
@@ -15,13 +16,17 @@ const Toast = ({ message, duration = 2000, onClose }: ToastProps) => {
     return () => clearTimeout(timer);
   }, [duration, onClose]);
 
-  return (
+  // 2. createPortal로 감싸서 body 직계 자식으로 렌더링
+  return createPortal(
     <div className={styles.toastContainer}>
       <div className={styles.toastBox}>
-        <span className={styles.iconWrapper}>{<LogoIcon />}</span>
+        <span className={styles.iconWrapper}>
+          <LogoIcon />
+        </span>
         <span className={styles.message}>{message}</span>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 };
 

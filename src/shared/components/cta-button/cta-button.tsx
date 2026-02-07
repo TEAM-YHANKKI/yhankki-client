@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
 
 import * as styles from './cta-button.css';
@@ -7,6 +8,7 @@ type CtaVariant = 'primary' | 'sub' | 'navy';
 interface CtaButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   variant?: CtaVariant;
+  className?: string;
 }
 
 const CtaButton = ({
@@ -14,6 +16,7 @@ const CtaButton = ({
   variant = 'primary',
   type = 'button',
   disabled = false,
+  className,
   onClick,
   ...props
 }: CtaButtonProps) => {
@@ -22,7 +25,7 @@ const CtaButton = ({
       type={type}
       disabled={disabled}
       onClick={onClick}
-      className={styles.ctaButtonRecipe({ variant })}
+      className={clsx(styles.ctaButtonRecipe({ variant }), className)}
       {...props}
     >
       {children}
