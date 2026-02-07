@@ -1,7 +1,7 @@
 import CircleButton from '@shared/components/circle-button/circle-button';
 import Notice from '@shared/components/notice/notice';
 import Toast from '@shared/components/toast/toast';
-import { STORAGE_KEYS } from '@shared/constants/storage';
+import { useNickname } from '@shared/hooks/use-nickname';
 import { WhiteMainLogoIcon } from '@shared/icons';
 import { LogoIcon, PenIcon, PersonIcon, StarIcon } from '@shared/icons';
 import NameEditModal from '@widgets/name-edit-modal/name-edit-modal';
@@ -15,13 +15,10 @@ const Home = () => {
   const navigate = useNavigate();
   const [showToast, setShowToast] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [nickname, setNickname] = useState(() => {
-    return localStorage.getItem(STORAGE_KEYS.USER_NICKNAME) || '포도';
-  });
+  const { nickname, updateNickname } = useNickname();
 
   const handleNicknameChange = (newNickname: string) => {
-    setNickname(newNickname);
-    localStorage.setItem(STORAGE_KEYS.USER_NICKNAME, newNickname);
+    updateNickname(newNickname);
     setIsModalOpen(false);
     setShowToast(true);
   };
