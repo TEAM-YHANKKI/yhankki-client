@@ -1,4 +1,4 @@
 export const zIndex = {
-  modal: '1000',
+  modal: '100',
   overlay: '10',
 } as const;
