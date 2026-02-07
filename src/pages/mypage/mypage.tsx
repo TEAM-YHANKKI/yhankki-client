@@ -46,6 +46,7 @@ const Mypage = () => {
       setToastMessage('이미 찜 목록에 있는 메뉴들입니다.');
     }
   };
+
   return (
     <>
       <div className={styles.gradientHeader}>
@@ -63,7 +64,7 @@ const Mypage = () => {
           </button>
         </div>
 
-        <div>
+        <div className={styles.menuReview}>
           <MenuReview onClick={handleMenuSave} />
         </div>
 

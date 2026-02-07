@@ -48,3 +48,9 @@ export const text = style({
   gap: '1rem',
   ...themeVars.font.title_m_24,
 });
+
+export const menuReview = style({
+  marginTop: '0.4rem',
+  paddingBottom: '3.2rem',
+  borderBottom: `1px solid ${themeVars.color.gray_10}`,
+});
