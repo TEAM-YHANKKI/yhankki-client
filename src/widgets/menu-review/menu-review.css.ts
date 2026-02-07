@@ -6,6 +6,8 @@ export const container = style({
   flexDirection: 'column',
   gap: '1.6rem',
   padding: '2rem 2.4rem',
+  border: `1px solid ${themeVars.color.primary_1}`,
+  borderRadius: '20px',
 });
 
 export const titleSection = style({
