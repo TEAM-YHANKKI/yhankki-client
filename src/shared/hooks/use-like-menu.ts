@@ -25,6 +25,11 @@ export const useLikeMenu = (onShowToast: (msg: string) => void) => {
       const itemsToAdd = Array.isArray(items) ? items : [items];
       const newItems = itemsToAdd.filter((menu) => !likeMenu.includes(menu));
 
+      if (itemsToAdd.length > 0 && newItems.length === 0) {
+        onShowToast('이미 등록된 메뉴입니다.');
+        return;
+      }
+
       if (likeMenu.length + newItems.length > 10) {
         onShowToast('최대 10개까지만 등록 가능합니다.');
         return;
