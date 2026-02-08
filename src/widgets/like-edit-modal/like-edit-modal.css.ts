@@ -37,6 +37,9 @@ export const crossIcon = style({
 });
 
 export const menuListSection = style({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '1.6rem',
   marginTop: '1.6rem',
   marginBottom: '2rem',
 });
@@ -58,7 +61,6 @@ export const inputSection = style({
   display: 'flex',
   alignItems: 'center',
   gap: '0.8rem',
-  marginTop: '1.6rem',
 });
 
 export const input = style({

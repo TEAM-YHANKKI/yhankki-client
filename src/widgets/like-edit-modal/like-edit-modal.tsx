@@ -46,23 +46,23 @@ const LikeEditModal = ({
           </div>
         </header>
         <section className={styles.menuListSection}>
-          <ul className={styles.menuList}>
-            {likeMenu.map((menu, index) => (
-              <li key={`${menu}-${index}`} className={styles.menuItem}>
-                <button
-                  type='button'
-                  className={styles.iconButton}
-                  aria-label={`${menu} 삭제`}
-                  onClick={() => {
-                    onDelete(menu);
-                  }}
-                >
-                  <MinusIcon />
-                </button>
-                <span>{menu}</span>
-              </li>
-            ))}
-          </ul>
+          {likeMenu.length > 0 && (
+            <ul className={styles.menuList}>
+              {likeMenu.map((menu, index) => (
+                <li key={`${menu}-${index}`} className={styles.menuItem}>
+                  <button
+                    type='button'
+                    className={styles.iconButton}
+                    onClick={() => onDelete(menu)}
+                    aria-label={`${menu} 삭제`}
+                  >
+                    <MinusIcon />
+                  </button>
+                  <span>{menu}</span>
+                </li>
+              ))}
+            </ul>
+          )}
           <div className={styles.inputSection}>
             <button
               type='button'
