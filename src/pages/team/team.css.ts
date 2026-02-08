@@ -42,24 +42,18 @@ export const recruiting = style({
 });
 
 export const teamSection = style({
+  display: 'flex',
+  alignItems: 'flex-end',
+  justifyContent: 'center',
   width: '100%',
   height: '45rem',
   padding: '2rem 2.4rem',
   backgroundImage: "url('/assets/images/team.webp')",
   backgroundSize: 'cover',
-
   borderRadius: '1.6rem',
-  overflow: 'hidden',
-
-  // 3. 그림자 추가 (입체감)
-  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
-
-  // 4. (선택) 테두리 선을 살짝 주면 더 깔끔합니다
   border: `1px solid ${themeVars.color.gray_10}`,
-
-  display: 'flex',
-  alignItems: 'flex-end',
-  justifyContent: 'center',
+  overflow: 'hidden',
+  boxShadow: '0 4px 20px rgba(0, 0, 0, 0.15)',
 });
 
 export const applyButton = style({
