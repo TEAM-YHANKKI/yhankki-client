@@ -6,6 +6,8 @@ import { useState } from 'react';
 
 import * as styles from './name-edit-modal.css';
 
+const MAX_LENGTH = 4;
+
 interface NameEditModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -13,6 +15,8 @@ interface NameEditModalProps {
 }
 const NameEditModal = ({ isOpen, onClose, onSubmit }: NameEditModalProps) => {
   const [newName, setNewName] = useState('');
+  const isLong = newName.length > MAX_LENGTH;
+  const isEmpty = newName.trim().length === 0;
 
   const handleClose = () => {
     setNewName('');
@@ -20,7 +24,7 @@ const NameEditModal = ({ isOpen, onClose, onSubmit }: NameEditModalProps) => {
   };
 
   const handleSubmit = () => {
-    if (newName.trim().length === 0) return;
+    if (isEmpty || isLong) return;
 
     onSubmit(newName);
     handleClose();
@@ -41,17 +45,24 @@ const NameEditModal = ({ isOpen, onClose, onSubmit }: NameEditModalProps) => {
             <p>새로운 이름을 알려주세요!</p>
           </div>
         </header>
-        <section className={styles.input}>
+        <section className={styles.inputSection}>
           <Input
             placeholder='닉네임을 입력해주세요'
             value={newName}
             onChange={(e) => setNewName(e.target.value)}
+            className={styles.input}
           />
+          {isLong && (
+            <p className={styles.helperText}>
+              닉네임은 최대 4글자까지만 가능해요!
+            </p>
+          )}
         </section>
+
         <CtaButton
           variant='navy'
           onClick={handleSubmit}
-          disabled={!newName.trim()}
+          disabled={isEmpty || isLong}
         >
           수정하기
         </CtaButton>
