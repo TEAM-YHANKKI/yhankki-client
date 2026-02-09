@@ -1,6 +1,8 @@
+import { MOCK_MENU_DATA } from '@pages/menu/menu-mock';
 import CircleButton from '@shared/components/circle-button/circle-button';
 import Notice from '@shared/components/notice/notice';
 import Toast from '@shared/components/toast/toast';
+import { useLikeMenu } from '@shared/hooks/use-like-menu';
 import { useNickname } from '@shared/hooks/use-nickname';
 import { WhiteMainLogoIcon } from '@shared/icons';
 import { LogoIcon, PenIcon, PersonIcon, StarIcon } from '@shared/icons';
@@ -16,6 +18,16 @@ const Home = () => {
   const [showToast, setShowToast] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { nickname, updateNickname } = useNickname();
+  const { likeMenu } = useLikeMenu(() => {});
+  const today = new Date().getDate();
+
+  const checkedIsLiked = (restaurant: keyof typeof MOCK_MENU_DATA) => {
+    const todayMenu = MOCK_MENU_DATA[restaurant][today] || [];
+
+    return todayMenu.some((item) =>
+      item.menu.some((menuName) => likeMenu.includes(menuName)),
+    );
+  };
 
   const handleNicknameChange = (newNickname: string) => {
     updateNickname(newNickname);
@@ -51,16 +63,19 @@ const Home = () => {
           <div className={styles.fullWidth}>
             <RestaurantButton
               type='studentHall'
+              isLiked={checkedIsLiked('studentHall')}
               onClick={() => navigate('/menu/studentHall')}
             />
           </div>
 
           <RestaurantButton
             type='yongoreum'
+            isLiked={checkedIsLiked('yongoreum')}
             onClick={() => navigate('/menu/yongoreum')}
           />
           <RestaurantButton
             type='dormitory'
+            isLiked={checkedIsLiked('dormitory')}
             onClick={() => navigate('/menu/dormitory')}
           />
         </div>
