@@ -3,6 +3,7 @@
 dist
 build
 out
+dev-dist       
 
 # dependencies
 node_modules
@@ -18,3 +19,7 @@ pnpm-lock.yaml
 
 # HTML ignore
 **/*.html
+
+# PWA assets
+public/sw.js     
+public/workbox-*.js
