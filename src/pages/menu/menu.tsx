@@ -48,7 +48,7 @@ const Menu = () => {
         <div className={styles.restaurantInfo}>
           <div className={styles.restaurantName}>
             <p>{info.name}</p>
-            {restaurantId === 'studentHall' && (
+            {currentTab === 'studentHall' && (
               <a
                 href={EXTERNAL_LINKS.STUDENT_HALL_INSTAGRAM}
                 target='_blank'
