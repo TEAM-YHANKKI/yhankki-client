@@ -14,7 +14,7 @@ export default defineConfig({
     vanillaExtractPlugin(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'apple-touch-icon.png'],
+      includeAssets: ['favicon.svg', 'apple-touch-icon.png'],
       manifest: {
         name: '용인한끼',
         short_name: '용인한끼',
