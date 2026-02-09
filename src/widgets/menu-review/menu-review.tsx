@@ -96,19 +96,25 @@ const MenuReview = ({ onClick }: MenuReviewProps) => {
           좋아하는 메뉴를 저장하면, 다음에 알려드려요!
         </p>
       </div>
-      <div className={styles.menuList}>
-        {currentMenuList.map((menu) => (
-          <label key={menu} className={styles.menu}>
-            <input
-              type='checkbox'
-              checked={checkedMenus.includes(menu)}
-              onChange={() => handleCheck(menu)}
-              className={styles.checkbox}
-            />
-            <span>{menu}</span>
-          </label>
-        ))}
-      </div>
+      {currentMenuList.length > 0 ? (
+        <div className={styles.menuList}>
+          {currentMenuList.map((menu) => (
+            <label key={menu} className={styles.menu}>
+              <input
+                type='checkbox'
+                checked={checkedMenus.includes(menu)}
+                onChange={() => handleCheck(menu)}
+                className={styles.checkbox}
+              />
+              <span>{menu}</span>
+            </label>
+          ))}
+        </div>
+      ) : (
+        <div className={styles.emptyState}>
+          <p>오늘은 메뉴 정보가 없어요.</p>
+        </div>
+      )}
       <CtaButton
         variant='navy'
         onClick={() => onClick(checkedMenus)}
