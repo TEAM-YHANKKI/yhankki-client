@@ -58,12 +58,22 @@ const MenuReview = ({ onClick }: MenuReviewProps) => {
     setCheckedMenus([]);
   };
 
+  const handleCornerSelect = (id: string) => {
+    setSelectedCorner(id);
+    setCheckedMenus([]);
+  };
+
   const handleCheck = (menuName: string) => {
     setCheckedMenus((prev) =>
       prev.includes(menuName)
         ? prev.filter((m) => m !== menuName)
         : [...prev, menuName],
     );
+  };
+
+  const handleSubmit = () => {
+    onClick(checkedMenus);
+    setCheckedMenus([]);
   };
 
   return (
@@ -88,7 +98,7 @@ const MenuReview = ({ onClick }: MenuReviewProps) => {
                 id: currentCornerId,
                 label: currentCornerLabel,
               }}
-              onSelect={(id) => setSelectedCorner(id)}
+              onSelect={handleCornerSelect}
             />
           </div>
         </div>
@@ -117,7 +127,7 @@ const MenuReview = ({ onClick }: MenuReviewProps) => {
       )}
       <CtaButton
         variant='navy'
-        onClick={() => onClick(checkedMenus)}
+        onClick={handleSubmit}
         disabled={isButtonDisabled}
       >
         저장하기
