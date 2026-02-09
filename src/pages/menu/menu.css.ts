@@ -86,3 +86,19 @@ export const emptyLogo = style({
 export const emptyText = style({
   ...themeVars.font.title_m_18,
 });
+
+export const restaurantName = style({
+  display: 'flex',
+  alignItems: 'center',
+  gap: '1rem',
+});
+
+export const instagramButton = style({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  padding: '0.5rem',
+  borderRadius: '100%',
+  backgroundColor: themeVars.color.gray_10,
+  color: themeVars.color.gray_30,
+});
