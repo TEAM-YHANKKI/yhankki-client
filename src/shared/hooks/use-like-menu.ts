@@ -30,14 +30,14 @@ export const useLikeMenu = (onShowToast: (msg: string) => void) => {
         return;
       }
 
-      if (likeMenu.length + newItems.length > 10) {
-        onShowToast('최대 10개까지만 등록 가능합니다.');
+      if (likeMenu.length + newItems.length > 6) {
+        onShowToast('최대 6개까지만 등록 가능합니다.');
         return;
       }
 
       if (newItems.length > 0) {
         setLikeMenu((prev) => [...prev, ...newItems]);
-        onShowToast('찜 목록에 저장되었어요!');
+        onShowToast('좋아하는 메뉴에 저장되었어요!');
       }
     },
     [likeMenu, onShowToast],

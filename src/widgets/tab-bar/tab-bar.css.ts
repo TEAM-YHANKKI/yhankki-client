@@ -21,6 +21,9 @@ export const tabItem = recipe({
     alignItems: 'center',
     padding: '1.6rem 0.8rem',
     cursor: 'pointer',
+    whiteSpace: 'nowrap',
+    minWidth: 'fit-content',
+    flexShrink: 0,
     ...themeVars.font.button_b_18,
   },
   variants: {

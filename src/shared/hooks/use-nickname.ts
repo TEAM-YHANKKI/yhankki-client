@@ -3,7 +3,7 @@ import { useCallback, useState } from 'react';
 
 export const useNickname = () => {
   const [nickname, setNickname] = useState(() => {
-    return localStorage.getItem(STORAGE_KEYS.USER_NICKNAME) || '포도';
+    return localStorage.getItem(STORAGE_KEYS.USER_NICKNAME) || '용용이';
   });
 
   const updateNickname = useCallback((newNickname: string) => {

@@ -95,3 +95,12 @@ export const restaurantSelect = style({
 export const cornerSelect = style({
   width: '8.2rem',
 });
+
+export const emptyState = style({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  height: '6rem',
+  color: themeVars.color.gray_50,
+  ...themeVars.font.body_r_16,
+});

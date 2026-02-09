@@ -30,13 +30,23 @@ export const mainTitleText = style({
   ...themeVars.font.title_m_18,
 });
 
+export const inputSection = style({
+  margin: '1.6rem 0 2rem 0',
+});
+
 export const input = style({
   height: '3.9rem',
-  margin: '1.6rem 0 2rem 0',
 });
 
 export const crossIcon = style({
   width: '1.5rem',
   height: '1.5rem',
   cursor: 'pointer',
+});
+
+export const helperText = style({
+  paddingTop: '1rem',
+  paddingLeft: '1rem',
+  color: themeVars.color.primary_3,
+  ...themeVars.font.caption_r_12,
 });
