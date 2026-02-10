@@ -62,7 +62,7 @@ const Home = () => {
           <p>오늘도 든든한 하루 되세요!</p>
         </div>
 
-        <Notice notice='용인한끼 리뉴얼 완료!' />
+        <Notice notice='현재 테스트 기간으로, 임시 식단 정보입니다!' />
 
         <div className={styles.restaurantGrid}>
           <div className={styles.fullWidth}>
