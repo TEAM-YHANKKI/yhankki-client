@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import ReactGA from 'react-ga4';
 import { useLocation } from 'react-router-dom';
 
-const GA_TRACKING_ID = 'G-DW0L62YB4K';
+const GA_TRACKING_ID = import.meta.env.VITE_GA_TRACKING_ID;
 
 const GoogleAnalytics = () => {
   const location = useLocation();
