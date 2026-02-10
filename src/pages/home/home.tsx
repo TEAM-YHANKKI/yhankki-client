@@ -4,8 +4,13 @@ import Notice from '@shared/components/notice/notice';
 import Toast from '@shared/components/toast/toast';
 import { useLikeMenu } from '@shared/hooks/use-like-menu';
 import { useNickname } from '@shared/hooks/use-nickname';
-import { WhiteMainLogoIcon } from '@shared/icons';
-import { LogoIcon, PenIcon, PersonIcon, StarIcon } from '@shared/icons';
+import {
+  LogoIcon,
+  PenIcon,
+  PersonIcon,
+  StarIcon,
+  WhiteMainLogoIcon,
+} from '@shared/icons';
 import NameEditModal from '@widgets/name-edit-modal/name-edit-modal';
 import RestaurantButton from '@widgets/restaurant-button/restaurant-button';
 import { useState } from 'react';
