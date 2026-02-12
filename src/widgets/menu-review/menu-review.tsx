@@ -1,8 +1,8 @@
-import { MOCK_MENU_DATA } from '@pages/menu/menu-mock';
 import CtaButton from '@shared/components/cta-button/cta-button';
 import DropDown from '@shared/components/drop-down/drop-down';
 import type { TabType } from '@shared/types/type';
 import { useMemo, useState } from 'react';
+import { useMeals } from 'src/features/menu/hooks/use-meals';
 
 import * as styles from './menu-review.css';
 
@@ -30,10 +30,7 @@ const MenuReview = ({ onClick }: MenuReviewProps) => {
   const [checkedMenus, setCheckedMenus] = useState<string[]>([]);
 
   const today = new Date().getDate();
-
-  const dailyMenuData = useMemo(() => {
-    return MOCK_MENU_DATA[selectedRestaurant]?.[today] || [];
-  }, [selectedRestaurant, today]);
+  const { data: dailyMenuData = [] } = useMeals(selectedRestaurant, today);
 
   const cornerOptions = useMemo(() => {
     return dailyMenuData.map((item) => ({
@@ -108,7 +105,7 @@ const MenuReview = ({ onClick }: MenuReviewProps) => {
       </div>
       {currentMenuList.length > 0 ? (
         <div className={styles.menuList}>
-          {currentMenuList.map((menu) => (
+          {currentMenuList.map((menu: string) => (
             <label key={menu} className={styles.menu}>
               <input
                 type='checkbox'
