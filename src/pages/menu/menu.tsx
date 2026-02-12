@@ -7,9 +7,9 @@ import TabBar from '@widgets/tab-bar/tab-bar';
 import WeeklyCalendar from '@widgets/weekly-calendar/weekly-calendar';
 import { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useMeals } from 'src/features/menu/hooks/use-meals';
 
 import * as styles from './menu.css';
-import { MOCK_MENU_DATA } from './menu-mock';
 
 const isValidTab = (id: string | undefined): id is TabType => {
   const validTabs: TabType[] = ['studentHall', 'yongoreum', 'dormitory'];
@@ -23,7 +23,7 @@ const Menu = () => {
 
   const currentTab = isValidTab(restaurantId) ? restaurantId : 'studentHall';
   const info = RESTAURANT_INFO[currentTab] || RESTAURANT_INFO.studentHall;
-  const menuList = MOCK_MENU_DATA[currentTab]?.[selectedDate] || [];
+  const { data: menuList = [] } = useMeals(currentTab, selectedDate);
 
   const handleTabChange = (id: TabType) => {
     navigate(`/menu/${id}`);

@@ -1,4 +1,3 @@
-import { MOCK_MENU_DATA } from '@pages/menu/menu-mock';
 import CircleButton from '@shared/components/circle-button/circle-button';
 import Notice from '@shared/components/notice/notice';
 import Toast from '@shared/components/toast/toast';
@@ -15,8 +14,19 @@ import NameEditModal from '@widgets/name-edit-modal/name-edit-modal';
 import RestaurantButton from '@widgets/restaurant-button/restaurant-button';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useMeals } from 'src/features/menu/hooks/use-meals';
 
 import * as styles from './home.css';
+
+interface MealItem {
+  id: number;
+  corner: string;
+  menu: string[];
+  price: number;
+  kcal: number;
+  restaurant_type: string;
+  date_day: number;
+}
 
 const Home = () => {
   const navigate = useNavigate();
@@ -26,11 +36,13 @@ const Home = () => {
   const { likeMenu } = useLikeMenu(() => {});
   const today = new Date().getDate();
 
-  const checkedIsLiked = (restaurant: keyof typeof MOCK_MENU_DATA) => {
-    const todayMenu = MOCK_MENU_DATA[restaurant][today] || [];
+  const { data: studentHallMenu = [] } = useMeals('studentHall', today);
+  const { data: yongoreumMenu = [] } = useMeals('yongoreum', today);
+  const { data: dormitoryMenu = [] } = useMeals('dormitory', today);
 
-    return todayMenu.some((item) =>
-      item.menu.some((menuName) => likeMenu.includes(menuName)),
+  const checkedIsLiked = (menuList: MealItem[]) => {
+    return menuList.some((item) =>
+      item.menu.some((menuName: string) => likeMenu.includes(menuName)),
     );
   };
 
@@ -68,19 +80,19 @@ const Home = () => {
           <div className={styles.fullWidth}>
             <RestaurantButton
               type='studentHall'
-              isLiked={checkedIsLiked('studentHall')}
+              isLiked={checkedIsLiked(studentHallMenu)}
               onClick={() => navigate('/menu/studentHall')}
             />
           </div>
 
           <RestaurantButton
             type='yongoreum'
-            isLiked={checkedIsLiked('yongoreum')}
+            isLiked={checkedIsLiked(yongoreumMenu)}
             onClick={() => navigate('/menu/yongoreum')}
           />
           <RestaurantButton
             type='dormitory'
-            isLiked={checkedIsLiked('dormitory')}
+            isLiked={checkedIsLiked(dormitoryMenu)}
             onClick={() => navigate('/menu/dormitory')}
           />
         </div>
