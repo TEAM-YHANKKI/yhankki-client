@@ -13,7 +13,7 @@ globalStyle('html, body', {
 
 globalStyle('#root', {
   width: '100%',
-  minWidth: '375px',
+  minWidth: '320px',
   maxWidth: '430px',
   height: '100dvh',
   margin: '0 auto',
