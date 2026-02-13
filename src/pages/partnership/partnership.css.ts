@@ -31,7 +31,6 @@ export const mainLogo = style({
   height: '3.2rem',
 });
 
-// 임시 페이지 스타일
 export const noticeContainer = style({
   display: 'flex',
   flexDirection: 'column',
@@ -46,18 +45,13 @@ export const noticeContainer = style({
 export const icon = style({
   width: '5rem',
   height: '5rem',
+  color: themeVars.color.gray_50,
 });
 
 export const homeButton = style({
   marginTop: '1rem',
-  padding: '1.2rem 2.4rem',
-  background: 'linear-gradient(135deg, #008080 0%, #20B2AA 100%)',
-  borderRadius: '8px',
-  border: 'none',
-  color: themeVars.color.gray_0,
-  cursor: 'pointer',
+  padding: '0 2.4rem',
   transition: 'transform 0.2s ease, opacity 0.2s ease',
-  ...themeVars.font.button_b_16,
 
   ':hover': {
     opacity: 0.9,

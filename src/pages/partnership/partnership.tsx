@@ -1,3 +1,4 @@
+import CtaButton from '@shared/components/cta-button/cta-button';
 import { LogoIcon, WhiteMainLogoIcon } from '@shared/icons';
 import { useNavigate } from 'react-router-dom';
 
@@ -23,13 +24,12 @@ const Partnership = () => {
         <div className={styles.noticeContainer}>
           <LogoIcon className={styles.icon} />
           <p>제휴 페이지는 현재 준비중입니다.</p>
-          <button
-            type='button'
+          <CtaButton
             className={styles.homeButton}
             onClick={() => navigate('/')}
           >
             홈으로 돌아가기
-          </button>
+          </CtaButton>
         </div>
       </main>
     </>

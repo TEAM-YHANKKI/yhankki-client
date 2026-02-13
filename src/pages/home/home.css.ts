@@ -20,7 +20,7 @@ export const overlayContainer = style({
   borderTopLeftRadius: '30px',
   borderTopRightRadius: '30px',
   marginTop: '-3.6rem',
-  padding: '3.6rem 2.4rem 0 2.4rem',
+  padding: '3.6rem 2.4rem 8.6rem 2.4rem',
   zIndex: themeVars.zIndex.overlay,
 });
 
