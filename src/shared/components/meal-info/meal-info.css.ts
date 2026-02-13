@@ -33,3 +33,8 @@ export const kcalInfo = style({
   color: themeVars.color.gray_50,
   ...themeVars.font.caption_r_14,
 });
+
+export const likedMenuText = style({
+  color: themeVars.color.primary_3,
+  ...themeVars.font.button_b_16,
+});
