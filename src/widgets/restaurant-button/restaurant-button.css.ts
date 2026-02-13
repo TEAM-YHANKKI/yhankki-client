@@ -57,7 +57,6 @@ export const imageArea = recipe({
 export const titleSection = style({
   display: 'flex',
   justifyContent: 'space-between',
-  alignItems: 'flex-start',
   padding: '1.6rem 2rem',
 });
 
