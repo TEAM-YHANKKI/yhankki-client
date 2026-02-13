@@ -18,7 +18,7 @@ const Mypage = () => {
   const [isLikeModalOpen, setIsLikeModalOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
   const { nickname, updateNickname } = useNickname();
-  const { likeMenu, addLike, deleteLike } = useLikeMenu(setToastMessage);
+  const { likeMenu, addLike, updateLikeMenu } = useLikeMenu(setToastMessage);
 
   const handleNicknameChange = (newNickname: string) => {
     updateNickname(newNickname);
@@ -91,9 +91,9 @@ const Mypage = () => {
           <LikeEditModal
             isOpen={isLikeModalOpen}
             likeMenu={likeMenu}
-            onDelete={deleteLike}
-            onAdd={addLike}
+            onSubmit={updateLikeMenu}
             onClose={() => setIsLikeModalOpen(false)}
+            setToast={setToastMessage}
           />
         )}
 

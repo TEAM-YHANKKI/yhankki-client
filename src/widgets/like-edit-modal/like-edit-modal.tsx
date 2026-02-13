@@ -8,26 +8,45 @@ import * as styles from './like-edit-modal.css';
 
 interface LikeEditModalProps {
   isOpen: boolean;
-  onClose: () => void;
   likeMenu: string[];
-  onDelete: (name: string) => void;
-  onAdd: (name: string) => void;
+  onClose: () => void;
+  onSubmit: (newList: string[]) => void;
+  setToast: (msg: string) => void;
 }
 
 const LikeEditModal = ({
   isOpen,
   likeMenu,
   onClose,
-  onDelete,
-  onAdd,
+  onSubmit,
+  setToast,
 }: LikeEditModalProps) => {
   const [inputValue, setInputValue] = useState('');
+  const [tempList, setTempList] = useState(likeMenu);
 
-  const handleAddSubmit = () => {
-    const addMenu = inputValue.trim();
-    if (!addMenu) return;
-    onAdd(addMenu);
+  const handleAdd = () => {
+    const trimmed = inputValue.trim();
+    if (!trimmed || tempList.includes(trimmed)) {
+      setToast('이미 등록된 메뉴입니다.');
+      return;
+    }
+    if (tempList.length >= 6) {
+      setToast('최대 6개까지만 등록 가능합니다.');
+      return;
+    }
+
+    setTempList((prev) => [...prev, trimmed]);
     setInputValue('');
+  };
+
+  const handleDelete = (name: string) => {
+    setTempList((prev) => prev.filter((item) => item !== name));
+  };
+
+  const handleComplete = () => {
+    onSubmit(tempList);
+    setToast('좋아하는 메뉴가 수정되었어요!');
+    onClose();
   };
 
   return (
@@ -46,14 +65,14 @@ const LikeEditModal = ({
           </div>
         </header>
         <section className={styles.menuListSection}>
-          {likeMenu.length > 0 && (
+          {tempList.length > 0 && (
             <ul className={styles.menuList}>
-              {likeMenu.map((menu, index) => (
+              {tempList.map((menu, index) => (
                 <li key={`${menu}-${index}`} className={styles.menuItem}>
                   <button
                     type='button'
                     className={styles.iconButton}
-                    onClick={() => onDelete(menu)}
+                    onClick={() => handleDelete(menu)}
                     aria-label={`${menu} 삭제`}
                   >
                     <MinusIcon />
@@ -68,7 +87,7 @@ const LikeEditModal = ({
               type='button'
               aria-label='메뉴 추가'
               className={styles.iconButton}
-              onClick={handleAddSubmit}
+              onClick={handleAdd}
             >
               <PlusIcon />
             </button>
@@ -81,7 +100,7 @@ const LikeEditModal = ({
             />
           </div>
         </section>
-        <CtaButton variant='navy' onClick={onClose}>
+        <CtaButton variant='navy' onClick={handleComplete}>
           수정 완료
         </CtaButton>
       </div>

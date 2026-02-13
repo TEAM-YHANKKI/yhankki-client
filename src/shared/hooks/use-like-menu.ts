@@ -20,6 +20,10 @@ export const useLikeMenu = (onShowToast?: (msg: string) => void) => {
     localStorage.setItem(STORAGE_KEYS.LIKE_MENU, JSON.stringify(likeMenu));
   }, [likeMenu]);
 
+  const updateLikeMenu = useCallback((newList: string[]) => {
+    setLikeMenu(newList);
+  }, []);
+
   const addLike = useCallback(
     (items: string | string[]) => {
       const itemsToAdd = Array.isArray(items) ? items : [items];
@@ -47,5 +51,5 @@ export const useLikeMenu = (onShowToast?: (msg: string) => void) => {
     setLikeMenu((prev) => prev.filter((item) => item !== name));
   }, []);
 
-  return { likeMenu, addLike, deleteLike };
+  return { likeMenu, addLike, deleteLike, updateLikeMenu };
 };
