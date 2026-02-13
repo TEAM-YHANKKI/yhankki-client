@@ -47,9 +47,5 @@ export const useLikeMenu = (onShowToast?: (msg: string) => void) => {
     [likeMenu, onShowToast],
   );
 
-  const deleteLike = useCallback((name: string) => {
-    setLikeMenu((prev) => prev.filter((item) => item !== name));
-  }, []);
-
-  return { likeMenu, addLike, deleteLike, updateLikeMenu };
+  return { likeMenu, addLike, updateLikeMenu };
 };
