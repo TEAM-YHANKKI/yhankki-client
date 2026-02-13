@@ -1,3 +1,5 @@
+import { useLikeMenu } from '@shared/hooks/use-like-menu';
+
 import * as styles from './meal-info.css';
 
 interface MealInfoProps {
@@ -6,12 +8,22 @@ interface MealInfoProps {
 }
 
 const MealInfo = ({ menu, kcal }: MealInfoProps) => {
+  const { likeMenu } = useLikeMenu();
+
   return (
     <div className={styles.container}>
       <div className={styles.menuList}>
-        {menu.map((item, index) => (
-          <span key={index}>{item}</span>
-        ))}
+        {menu.map((item, index) => {
+          const isLiked = likeMenu.includes(item);
+          return (
+            <span
+              key={index}
+              className={isLiked ? styles.likedMenuText : undefined}
+            >
+              {item}
+            </span>
+          );
+        })}
       </div>
 
       <div className={styles.underLine} />
