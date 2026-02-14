@@ -1,15 +1,10 @@
 import CircleButton from '@shared/components/circle-button/circle-button';
 import Notice from '@shared/components/notice/notice';
 import Toast from '@shared/components/toast/toast';
+import { PATH } from '@shared/constants/path';
 import { useLikeMenu } from '@shared/hooks/use-like-menu';
 import { useNickname } from '@shared/hooks/use-nickname';
-import {
-  LogoIcon,
-  PenIcon,
-  PersonIcon,
-  StarIcon,
-  WhiteMainLogoIcon,
-} from '@shared/icons';
+import { LogoIcon, PenIcon, PersonIcon, StarIcon } from '@shared/icons';
 import NameEditModal from '@widgets/name-edit-modal/name-edit-modal';
 import RestaurantButton from '@widgets/restaurant-button/restaurant-button';
 import { useState } from 'react';
@@ -54,84 +49,79 @@ const Home = () => {
 
   return (
     <>
-      <div className={styles.gradientHeader}>
-        <WhiteMainLogoIcon className={styles.mainLogo} />
+      <div className={styles.homeText}>
+        <div className={styles.textButtonContainer}>
+          <p>
+            안녕하세요 <span className={styles.nickName}>{nickname}</span>님
+          </p>
+          <button
+            type='button'
+            className={styles.penButton}
+            onClick={() => setIsModalOpen(true)}
+          >
+            <PenIcon />
+          </button>
+        </div>
+        <p>오늘도 든든한 하루 되세요!</p>
       </div>
-      <main className={styles.overlayContainer}>
-        <div className={styles.homeText}>
-          <div className={styles.textButtonContainer}>
-            <p>
-              안녕하세요 <span className={styles.nickName}>{nickname}</span>님
-            </p>
-            <button
-              type='button'
-              className={styles.penButton}
-              onClick={() => setIsModalOpen(true)}
-            >
-              <PenIcon />
-            </button>
-          </div>
-          <p>오늘도 든든한 하루 되세요!</p>
-        </div>
 
-        <Notice notice='현재 테스트 기간으로, 임시 식단 정보입니다!' />
+      <Notice notice='현재 테스트 기간으로, 임시 식단 정보입니다!' />
 
-        <div className={styles.restaurantGrid}>
-          <div className={styles.fullWidth}>
-            <RestaurantButton
-              type='studentHall'
-              isLiked={checkedIsLiked(studentHallMenu)}
-              onClick={() => navigate('/menu/studentHall')}
-            />
-          </div>
-
+      <div className={styles.restaurantGrid}>
+        <div className={styles.fullWidth}>
           <RestaurantButton
-            type='yongoreum'
-            isLiked={checkedIsLiked(yongoreumMenu)}
-            onClick={() => navigate('/menu/yongoreum')}
-          />
-          <RestaurantButton
-            type='dormitory'
-            isLiked={checkedIsLiked(dormitoryMenu)}
-            onClick={() => navigate('/menu/dormitory')}
+            type='studentHall'
+            isLiked={checkedIsLiked(studentHallMenu)}
+            onClick={() => navigate(PATH.getMenu('studentHall'))}
           />
         </div>
 
-        <div className={styles.circleButton}>
-          <CircleButton
-            icon={<StarIcon />}
-            label='제휴'
-            onClick={() => navigate('/partnership')}
-          />
-          <CircleButton
-            icon={<PersonIcon />}
-            label='마이'
-            onClick={() => navigate('/mypage')}
-          />
-          <CircleButton
-            icon={<LogoIcon />}
-            label='용인한끼팀'
-            onClick={() => navigate('/team')}
-          />
-        </div>
+        <RestaurantButton
+          type='yongoreum'
+          isLiked={checkedIsLiked(yongoreumMenu)}
+          onClick={() => navigate(PATH.getMenu('yongoreum'))}
+        />
+        <RestaurantButton
+          type='dormitory'
+          isLiked={checkedIsLiked(dormitoryMenu)}
+          onClick={() => navigate(PATH.getMenu('dormitory'))}
+        />
+      </div>
 
-        {isModalOpen && (
-          <NameEditModal
-            isOpen={isModalOpen}
-            onSubmit={handleNicknameChange}
-            onClose={() => setIsModalOpen(false)}
-          />
-        )}
+      <div className={styles.circleButton}>
+        <CircleButton
+          icon={<StarIcon />}
+          label='제휴'
+          onClick={() => navigate(PATH.PARTNERSHIP)}
+        />
+        <CircleButton
+          icon={<PersonIcon />}
+          label='마이'
+          onClick={() => navigate(PATH.MYPAGE)}
+        />
+        <CircleButton
+          icon={<LogoIcon />}
+          label='용인한끼팀'
+          onClick={() => navigate(PATH.TEAM)}
+        />
+      </div>
 
-        {showToast && (
-          <Toast
-            message='닉네임이 수정되었어요!'
-            onClose={() => {
-              setShowToast(false);
-            }}
-          />
-        )}
-      </main>
+      {isModalOpen && (
+        <NameEditModal
+          isOpen={isModalOpen}
+          onSubmit={handleNicknameChange}
+          onClose={() => setIsModalOpen(false)}
+        />
+      )}
+
+      {showToast && (
+        <Toast
+          message='닉네임이 수정되었어요!'
+          onClose={() => {
+            setShowToast(false);
+          }}
+        />
+      )}
     </>
   );
 };

@@ -1,3 +1,4 @@
+import MainLayout from '@app/layouts/main-layout';
 import RootLayout from '@app/layouts/root-layout';
 import Home from '@pages/home/home';
 import Menu from '@pages/menu/menu';
@@ -9,14 +10,21 @@ import { createBrowserRouter } from 'react-router-dom';
 
 export const router = createBrowserRouter([
   {
-    path: PATH.HOME,
     element: <RootLayout />,
     children: [
-      { index: true, element: <Home /> },
-      { path: PATH.MENU, element: <Menu /> },
-      { path: PATH.PARTNERSHIP, element: <Partnership /> },
-      { path: PATH.MYPAGE, element: <Mypage /> },
-      { path: PATH.TEAM, element: <Team /> },
+      {
+        element: <MainLayout />,
+        children: [
+          { path: PATH.HOME, element: <Home /> },
+          { path: PATH.PARTNERSHIP, element: <Partnership /> },
+          { path: PATH.MYPAGE, element: <Mypage /> },
+          { path: PATH.TEAM, element: <Team /> },
+        ],
+      },
+      {
+        path: PATH.MENU,
+        element: <Menu />,
+      },
     ],
   },
 ]);
