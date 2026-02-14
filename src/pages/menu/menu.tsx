@@ -1,4 +1,5 @@
 import { EXTERNAL_LINKS } from '@shared/constants/link';
+import { PATH } from '@shared/constants/path';
 import { RESTAURANT_INFO } from '@shared/constants/restaurant-info';
 import { InstagramIcon, LogoIcon, WhiteMainLogoIcon } from '@shared/icons';
 import type { TabType } from '@shared/types/type';
@@ -26,7 +27,7 @@ const Menu = () => {
   const { data: menuList = [] } = useMeals(currentTab, selectedDate);
 
   const handleTabChange = (id: TabType) => {
-    navigate(`/menu/${id}`);
+    navigate(PATH.getMenu(id));
   };
 
   return (
@@ -35,7 +36,7 @@ const Menu = () => {
         <button
           type='button'
           aria-label='용인한끼'
-          onClick={() => navigate('/')}
+          onClick={() => navigate(PATH.HOME)}
         >
           <WhiteMainLogoIcon className={styles.mainLogo} />
         </button>

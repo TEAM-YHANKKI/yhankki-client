@@ -1,7 +1,7 @@
 import GoogleAnalytics from '@shared/lib/analytics/google-analytics';
 import { Outlet } from 'react-router-dom';
 
-const Layout = () => {
+const RootLayout = () => {
   return (
     <div>
       <main>
@@ -12,4 +12,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default RootLayout;
