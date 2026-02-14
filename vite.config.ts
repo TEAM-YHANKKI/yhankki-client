@@ -14,7 +14,11 @@ export default defineConfig({
     vanillaExtractPlugin(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg', 'apple-touch-icon.png'],
+      includeAssets: [
+        'favicon.svg',
+        'apple-touch-icon.png',
+        'pwa-logo-512.png',
+      ],
       manifest: {
         name: '용인한끼',
         short_name: '용인한끼',
@@ -47,6 +51,13 @@ export default defineConfig({
             purpose: 'maskable',
           },
         ],
+      },
+      pwaAssets: {
+        disabled: false,
+        config: true,
+      },
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,webp}'],
       },
       devOptions: {
         enabled: true,
