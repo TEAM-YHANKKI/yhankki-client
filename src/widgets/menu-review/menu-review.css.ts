@@ -8,6 +8,13 @@ export const container = style({
   padding: '2rem 2.4rem',
   border: `1px solid ${themeVars.color.primary_1}`,
   borderRadius: '20px',
+
+  '@media': {
+    'screen and (max-width: 360px)': {
+      padding: '1.6rem 1.4rem',
+      gap: '1.2rem',
+    },
+  },
 });
 
 export const titleSection = style({

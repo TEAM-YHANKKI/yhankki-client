@@ -13,7 +13,7 @@ export const overlayContainer = style({
   position: 'relative',
   display: 'flex',
   flexDirection: 'column',
-
+  gap: '1.6rem',
   width: '100%',
   minHeight: 'calc(100vh - 8.4rem)',
   backgroundColor: themeVars.color.gray_0,
@@ -29,36 +29,4 @@ export const mainLogo = style({
   top: '3.2rem',
   width: '14.8rem',
   height: '3.2rem',
-});
-
-export const noticeContainer = style({
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  alignItems: 'center',
-  gap: '1.5rem',
-  flex: 1,
-  color: themeVars.color.gray_70,
-  ...themeVars.font.title_m_18,
-});
-
-export const icon = style({
-  width: '5rem',
-  height: '5rem',
-  color: themeVars.color.gray_50,
-});
-
-export const homeButton = style({
-  marginTop: '1rem',
-  padding: '0 2.4rem',
-  transition: 'transform 0.2s ease, opacity 0.2s ease',
-
-  ':hover': {
-    opacity: 0.9,
-    transform: 'scale(1.02)',
-  },
-
-  ':active': {
-    transform: 'scale(0.98)',
-  },
 });

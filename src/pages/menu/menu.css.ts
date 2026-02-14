@@ -29,7 +29,7 @@ export const mainLogo = style({
 });
 
 export const tabWrapper = style({
-  marginTop: '-2.85rem',
+  marginTop: '-3.6rem',
   zIndex: themeVars.zIndex.overlay,
 });
 

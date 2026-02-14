@@ -1,8 +1,9 @@
 import CtaButton from '@shared/components/cta-button/cta-button';
 import Toast from '@shared/components/toast/toast';
+import { PATH } from '@shared/constants/path';
 import { useLikeMenu } from '@shared/hooks/use-like-menu';
 import { useNickname } from '@shared/hooks/use-nickname';
-import { PenIcon, WhiteMainLogoIcon } from '@shared/icons';
+import { PenIcon } from '@shared/icons';
 import LikeEditModal from '@widgets/like-edit-modal/like-edit-modal';
 import LikeMenu from '@widgets/like-menu/like-menu';
 import MenuReview from '@widgets/menu-review/menu-review';
@@ -18,7 +19,7 @@ const Mypage = () => {
   const [isLikeModalOpen, setIsLikeModalOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState('');
   const { nickname, updateNickname } = useNickname();
-  const { likeMenu, addLike, deleteLike } = useLikeMenu(setToastMessage);
+  const { likeMenu, addLike, updateLikeMenu } = useLikeMenu(setToastMessage);
 
   const handleNicknameChange = (newNickname: string) => {
     updateNickname(newNickname);
@@ -28,84 +29,71 @@ const Mypage = () => {
 
   return (
     <>
-      <div className={styles.gradientHeader}>
+      <div className={styles.text}>
+        <p>어서오세요, {nickname}님</p>
         <button
           type='button'
-          aria-label='용인한끼'
-          onClick={() => {
-            navigate('/');
-          }}
+          className={styles.penButton}
+          onClick={() => setIsModalOpen(true)}
         >
-          <WhiteMainLogoIcon className={styles.mainLogo} />
+          <PenIcon />
         </button>
       </div>
-      <main className={styles.overlayContainer}>
-        <div className={styles.text}>
-          <p>어서오세요, {nickname}님</p>
-          <button
-            type='button'
-            className={styles.penButton}
-            onClick={() => setIsModalOpen(true)}
-          >
-            <PenIcon />
-          </button>
-        </div>
 
-        <div className={styles.menuReview}>
-          <MenuReview onClick={addLike} />
-        </div>
+      <div className={styles.menuReview}>
+        <MenuReview onClick={addLike} />
+      </div>
 
-        <div className={styles.likeMenuSection}>
-          <p>좋아하는 메뉴</p>
-          <LikeMenu
-            likeMenu={likeMenu}
-            onClick={() => setIsLikeModalOpen(true)}
-          />
-        </div>
+      <div className={styles.likeMenuSection}>
+        <p>좋아하는 메뉴</p>
+        <LikeMenu
+          likeMenu={likeMenu}
+          onClick={() => setIsLikeModalOpen(true)}
+        />
+      </div>
 
-        <div className={styles.partnershipContainer}>
-          <p>제휴식당</p>
-          <div className={styles.partnership}>
-            <p>용인대의 제휴식당을 확인해보세요</p>
-            <CtaButton
-              variant='sub'
-              onClick={() => {
-                navigate('/partnership');
-              }}
-              className={styles.partnershipButton}
-            >
-              제휴식당으로 이동하기
-            </CtaButton>
-          </div>
-        </div>
-
-        {isModalOpen && (
-          <NameEditModal
-            isOpen={isModalOpen}
-            onSubmit={handleNicknameChange}
-            onClose={() => setIsModalOpen(false)}
-          />
-        )}
-
-        {isLikeModalOpen && (
-          <LikeEditModal
-            isOpen={isLikeModalOpen}
-            likeMenu={likeMenu}
-            onDelete={deleteLike}
-            onAdd={addLike}
-            onClose={() => setIsLikeModalOpen(false)}
-          />
-        )}
-
-        {toastMessage && (
-          <Toast
-            message={toastMessage}
-            onClose={() => {
-              setToastMessage('');
+      <div className={styles.partnershipContainer}>
+        <p>제휴식당</p>
+        <div className={styles.partnership}>
+          <p>용인대의 제휴식당을 확인해보세요</p>
+          <CtaButton
+            variant='sub'
+            onClick={() => {
+              navigate(PATH.PARTNERSHIP);
             }}
-          />
-        )}
-      </main>
+            className={styles.partnershipButton}
+          >
+            제휴식당으로 이동하기
+          </CtaButton>
+        </div>
+      </div>
+
+      {isModalOpen && (
+        <NameEditModal
+          isOpen={isModalOpen}
+          onSubmit={handleNicknameChange}
+          onClose={() => setIsModalOpen(false)}
+        />
+      )}
+
+      {isLikeModalOpen && (
+        <LikeEditModal
+          isOpen={isLikeModalOpen}
+          likeMenu={likeMenu}
+          onSubmit={updateLikeMenu}
+          onClose={() => setIsLikeModalOpen(false)}
+          setToast={setToastMessage}
+        />
+      )}
+
+      {toastMessage && (
+        <Toast
+          message={toastMessage}
+          onClose={() => {
+            setToastMessage('');
+          }}
+        />
+      )}
     </>
   );
 };

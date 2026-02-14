@@ -4,4 +4,5 @@ export const PATH = {
   PARTNERSHIP: '/partnership',
   MYPAGE: '/mypage',
   TEAM: '/team',
+  getMenu: (restaurantId: string) => `/menu/${restaurantId}`,
 } as const;
