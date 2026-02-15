@@ -29,7 +29,7 @@ export const dateText = style({
 });
 
 export const selected = style({
-  border: 'none',
+  border: `1px solid ${themeVars.color.point_2}`,
   backgroundColor: themeVars.color.point_2,
   color: themeVars.color.secondary_3,
 });
