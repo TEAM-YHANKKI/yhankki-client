@@ -2,9 +2,8 @@ import { style } from '@vanilla-extract/css';
 
 export const sliderWrapper = style({
   width: '100%',
-  borderRadius: '12px',
+  borderRadius: '20px',
   overflow: 'hidden',
-  margin: '16px 0',
 });
 
 export const swiperContainer = style({

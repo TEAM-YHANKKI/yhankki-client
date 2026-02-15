@@ -24,9 +24,19 @@ const LikeEditModal = ({
   const [inputValue, setInputValue] = useState('');
   const [tempList, setTempList] = useState(likeMenu);
 
+  const isChanged =
+    tempList.length !== likeMenu.length ||
+    tempList.some((item, index) => item !== likeMenu[index]);
+
   const handleAdd = () => {
     const trimmed = inputValue.trim();
-    if (!trimmed || tempList.includes(trimmed)) {
+
+    if (!trimmed) {
+      setToast('메뉴 이름을 입력해주세요!');
+      return;
+    }
+
+    if (tempList.includes(trimmed)) {
       setToast('이미 등록된 메뉴입니다.');
       return;
     }
@@ -100,7 +110,11 @@ const LikeEditModal = ({
             />
           </div>
         </section>
-        <CtaButton variant='navy' onClick={handleComplete}>
+        <CtaButton
+          variant='navy'
+          onClick={handleComplete}
+          disabled={!isChanged}
+        >
           수정 완료
         </CtaButton>
       </div>

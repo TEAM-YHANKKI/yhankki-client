@@ -7,6 +7,7 @@ export const button = recipe({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
+    alignItems: 'stretch',
     width: '100%',
     height: '100%',
     borderRadius: '20px',
@@ -57,6 +58,7 @@ export const imageArea = recipe({
 export const titleSection = style({
   display: 'flex',
   justifyContent: 'space-between',
+  width: '100%',
   padding: '1.6rem 2rem',
 
   '@media': {
