@@ -26,7 +26,13 @@ const LikeEditModal = ({
 
   const handleAdd = () => {
     const trimmed = inputValue.trim();
-    if (!trimmed || tempList.includes(trimmed)) {
+
+    if (!trimmed) {
+      setToast('메뉴 이름을 입력해주세요!');
+      return;
+    }
+
+    if (tempList.includes(trimmed)) {
       setToast('이미 등록된 메뉴입니다.');
       return;
     }
