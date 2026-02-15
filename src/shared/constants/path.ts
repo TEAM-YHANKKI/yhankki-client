@@ -1,5 +1,6 @@
 export const PATH = {
-  HOME: '/',
+  SPLASH: '/',
+  HOME: '/home',
   MENU: '/menu/:restaurantId',
   PARTNERSHIP: '/partnership',
   MYPAGE: '/mypage',
