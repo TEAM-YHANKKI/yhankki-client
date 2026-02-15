@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import * as styles from './splash.css';
 
-const SplashScreen = () => {
+const Splash = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -28,4 +28,4 @@ const SplashScreen = () => {
   );
 };
 
-export default SplashScreen;
+export default Splash;
