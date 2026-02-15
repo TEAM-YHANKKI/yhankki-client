@@ -52,10 +52,6 @@ export default defineConfig({
           },
         ],
       },
-      pwaAssets: {
-        disabled: false,
-        config: true,
-      },
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,webp}'],
       },
@@ -64,4 +60,15 @@ export default defineConfig({
       },
     }),
   ],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: (id) => {
+          if (id.includes('node_modules')) {
+            return 'vendor';
+          }
+        },
+      },
+    },
+  },
 });
