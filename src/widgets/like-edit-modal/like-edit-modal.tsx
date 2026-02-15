@@ -24,6 +24,10 @@ const LikeEditModal = ({
   const [inputValue, setInputValue] = useState('');
   const [tempList, setTempList] = useState(likeMenu);
 
+  const isChanged =
+    tempList.length !== likeMenu.length ||
+    tempList.some((item, index) => item !== likeMenu[index]);
+
   const handleAdd = () => {
     const trimmed = inputValue.trim();
 
@@ -106,7 +110,11 @@ const LikeEditModal = ({
             />
           </div>
         </section>
-        <CtaButton variant='navy' onClick={handleComplete}>
+        <CtaButton
+          variant='navy'
+          onClick={handleComplete}
+          disabled={!isChanged}
+        >
           수정 완료
         </CtaButton>
       </div>
