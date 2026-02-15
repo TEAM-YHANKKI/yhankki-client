@@ -52,10 +52,6 @@ export default defineConfig({
           },
         ],
       },
-      pwaAssets: {
-        disabled: false,
-        config: true,
-      },
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,webp}'],
       },
