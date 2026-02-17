@@ -2,7 +2,7 @@ import '../shared/styles/reset.css';
 import '../shared/styles/theme.css';
 import '../shared/styles/global.css';
 
-import { queryClient } from '@shared/apis/queryClient';
+import { queryClient } from '@shared/apis/query-client';
 import { QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { StrictMode } from 'react';
