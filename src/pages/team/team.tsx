@@ -1,6 +1,6 @@
 import CtaButton from '@shared/components/cta-button/cta-button';
 import Notice from '@shared/components/notice/notice';
-import ImageSlider from '@widgets/Image-slider/image-slider';
+import ImageSlider from '@widgets/image-slider/image-slider';
 import { useNotices } from 'src/features/home/hooks/use-notices';
 import { useCarousels } from 'src/features/team/hooks/use-carousels';
 
