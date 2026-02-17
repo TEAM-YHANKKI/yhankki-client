@@ -13,11 +13,12 @@ export const container = style({
   alignItems: 'center',
   width: '100%',
   height: '100dvh',
+  paddingBottom: '8rem',
   backgroundColor: themeVars.color.gray_0,
 });
 
 export const logoWrapper = style({
-  width: '140px',
+  width: '180px',
   height: 'auto',
   animation: `${fadeIn} 0.8s ease-out`,
 });
