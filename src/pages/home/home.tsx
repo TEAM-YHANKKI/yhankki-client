@@ -9,6 +9,7 @@ import NameEditModal from '@widgets/name-edit-modal/name-edit-modal';
 import RestaurantButton from '@widgets/restaurant-button/restaurant-button';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useNotices } from 'src/features/home/hooks/use-notices';
 import { useMeals } from 'src/features/menu/hooks/use-meals';
 
 import * as styles from './home.css';
@@ -29,6 +30,8 @@ const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { nickname, updateNickname } = useNickname();
   const { likeMenu } = useLikeMenu(() => {});
+  const { data: notices = [] } = useNotices('home');
+  const displayNotice = notices[0]?.content || '새로운 공지사항이 없습니다.';
   const today = new Date().getDate();
 
   const { data: studentHallMenu = [] } = useMeals('studentHall', today);
@@ -65,7 +68,7 @@ const Home = () => {
         <p>오늘도 든든한 하루 되세요!</p>
       </div>
 
-      <Notice notice='현재 테스트 기간으로, 임시 식단 정보입니다!' />
+      <Notice notice={displayNotice} />
 
       <div className={styles.restaurantGrid}>
         <div className={styles.fullWidth}>
