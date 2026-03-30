@@ -10,13 +10,15 @@ interface DisplayMenuProps {
 }
 
 const DisplayMenu = ({ corner, price, menu, kcal }: DisplayMenuProps) => {
+  const displayPrice = price.toLocaleString();
+
   return (
     <div className={styles.container}>
       <div className={styles.cornerInfo}>
         <div className={styles.bar} />
         <div className={styles.infoText}>
           <span>{corner}</span>
-          <span className={styles.price}>{price}원</span>
+          <span className={styles.price}>{displayPrice}원</span>
         </div>
       </div>
       <div className={styles.mealInfoWrapper}>

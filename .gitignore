@@ -38,3 +38,5 @@ public/workbox-*.js
 *.njsproj
 *.sln
 *.sw?
+
+.htaccess
