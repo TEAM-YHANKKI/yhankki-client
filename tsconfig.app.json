@@ -24,12 +24,12 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
 
-    "baseUrl": ".",
     "paths": {
-      "@app/*": ["src/app/*"],
-      "@pages/*": ["src/pages/*"],
-      "@widgets/*": ["src/widgets/*"],
-      "@shared/*": ["src/shared/*"]
+      "src/*": ["./src/*"],
+      "@app/*": ["./src/app/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@widgets/*": ["./src/widgets/*"],
+      "@shared/*": ["./src/shared/*"]
     }
   },
   "include": ["src"]
