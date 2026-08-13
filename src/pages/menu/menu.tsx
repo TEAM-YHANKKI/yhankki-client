@@ -2,6 +2,7 @@ import { EXTERNAL_LINKS } from '@shared/constants/link';
 import { PATH } from '@shared/constants/path';
 import { RESTAURANT_INFO } from '@shared/constants/restaurant-info';
 import { InstagramIcon, LogoIcon, WhiteMainLogoIcon } from '@shared/icons';
+import { formatLocalDate } from '@shared/lib/date/format-local-date';
 import type { TabType } from '@shared/types/type';
 import DisplayMenu from '@widgets/display-menu/display-menu';
 import TabBar from '@widgets/tab-bar/tab-bar';
@@ -20,7 +21,9 @@ const isValidTab = (id: string | undefined): id is TabType => {
 const Menu = () => {
   const { restaurantId } = useParams();
   const navigate = useNavigate();
-  const [selectedDate, setSelectedDate] = useState(new Date().getDate());
+  const [selectedDate, setSelectedDate] = useState(() =>
+    formatLocalDate(new Date()),
+  );
 
   const currentTab = isValidTab(restaurantId) ? restaurantId : 'studentHall';
   const info = RESTAURANT_INFO[currentTab] || RESTAURANT_INFO.studentHall;

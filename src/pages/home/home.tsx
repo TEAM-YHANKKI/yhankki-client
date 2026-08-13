@@ -5,6 +5,7 @@ import { PATH } from '@shared/constants/path';
 import { useLikeMenu } from '@shared/hooks/use-like-menu';
 import { useNickname } from '@shared/hooks/use-nickname';
 import { LogoIcon, PenIcon, PersonIcon, StarIcon } from '@shared/icons';
+import { formatLocalDate } from '@shared/lib/date/format-local-date';
 import NameEditModal from '@widgets/name-edit-modal/name-edit-modal';
 import RestaurantButton from '@widgets/restaurant-button/restaurant-button';
 import { useState } from 'react';
@@ -21,7 +22,7 @@ interface MealItem {
   price: number;
   kcal: number;
   restaurant_type: string;
-  date_day: number;
+  date_day: string;
 }
 
 const Home = () => {
@@ -32,7 +33,7 @@ const Home = () => {
   const { likeMenu } = useLikeMenu(() => {});
   const { data: notices = [] } = useNotices('home');
   const displayNotice = notices[0]?.content || '새로운 공지사항이 없습니다.';
-  const today = new Date().getDate();
+  const today = formatLocalDate(new Date());
 
   const { data: studentHallMenu = [] } = useMeals('studentHall', today);
   const { data: yongoreumMenu = [] } = useMeals('yongoreum', today);

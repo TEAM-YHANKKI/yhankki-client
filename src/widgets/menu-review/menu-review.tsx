@@ -1,5 +1,6 @@
 import CtaButton from '@shared/components/cta-button/cta-button';
 import DropDown from '@shared/components/drop-down/drop-down';
+import { formatLocalDate } from '@shared/lib/date/format-local-date';
 import type { TabType } from '@shared/types/type';
 import { useMemo, useState } from 'react';
 import { useMeals } from 'src/features/menu/hooks/use-meals';
@@ -29,7 +30,7 @@ const MenuReview = ({ onClick }: MenuReviewProps) => {
   const [selectedCorner, setSelectedCorner] = useState<string | null>(null);
   const [checkedMenus, setCheckedMenus] = useState<string[]>([]);
 
-  const today = new Date().getDate();
+  const today = formatLocalDate(new Date());
   const { data: dailyMenuData = [] } = useMeals(selectedRestaurant, today);
 
   const cornerOptions = useMemo(() => {
