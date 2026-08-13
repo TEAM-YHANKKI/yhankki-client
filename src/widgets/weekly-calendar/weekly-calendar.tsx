@@ -1,11 +1,12 @@
 import DayChip from '@shared/components/day-chip/day-chip';
+import { formatLocalDate } from '@shared/lib/date/format-local-date';
 import { useMemo } from 'react';
 
 import * as styles from './weekly-calendar.css';
 
 interface WeeklyCalendarProps {
-  selectedDate: number;
-  onDateSelect: (date: number) => void;
+  selectedDate: string;
+  onDateSelect: (date: string) => void;
 }
 
 const WeeklyCalendar = ({
@@ -30,6 +31,7 @@ const WeeklyCalendar = ({
       days.push({
         label: dayLabels[i],
         date: d.getDate(),
+        value: formatLocalDate(d),
       });
     }
     return days;
@@ -39,11 +41,11 @@ const WeeklyCalendar = ({
     <div className={styles.container}>
       {weekDays.map((item) => (
         <DayChip
-          key={item.label}
+          key={item.value}
           day={item.label}
           date={item.date}
-          select={selectedDate === item.date}
-          onClick={() => onDateSelect(item.date)}
+          select={selectedDate === item.value}
+          onClick={() => onDateSelect(item.value)}
         />
       ))}
     </div>
